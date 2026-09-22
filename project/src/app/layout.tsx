@@ -12,7 +12,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const DESCRIPTION =
   "Learn the stock market by practicing it. Choose your starting virtual capital, build a portfolio, make decisions, and see what happens. No real money.";
 
-const THEME_SCRIPT = `(function(){try{var s=localStorage.getItem("praxis_theme")||"system";var r=s==="system"?(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):s;document.documentElement.setAttribute("data-theme",r);document.documentElement.style.colorScheme=r;}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
+const THEME_SCRIPT = `(function(){try{var s=localStorage.getItem("praxis_theme")||"light";var r=s==="system"?(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):s;document.documentElement.setAttribute("data-theme",r);document.documentElement.style.colorScheme=r;}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
