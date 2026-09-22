@@ -67,7 +67,7 @@ Clone the repository.
 
 ```bash
 git clone https://github.com/najmahares/praxis.git
-cd praxis/frontend
+cd praxis/project
 ```
 
 Install dependencies.
@@ -84,7 +84,7 @@ cp .env.local.example .env.local
 
 Edit `.env.local` and fill in every value. See the next section for what each one is.
 
-Apply the SQL files in `frontend/supabase/` to your Supabase project, in order. They create the tables for users, portfolios, lessons, community posts, and notifications.
+Apply the SQL files in `project/supabase/` to your Supabase project, in order. They create the tables for users, portfolios, lessons, community posts, and notifications.
 
 Start the development server.
 
@@ -131,7 +131,7 @@ Open `http://localhost:3000`.
 
 ```
 praxis/
-├── frontend/
+├── project/
 │   ├── src/
 │   │   ├── app/
 │   │   │   ├── (admin)/admin/          Admin pages
@@ -196,7 +196,7 @@ praxis/
 
 1. Push the repository to GitHub.
 2. Go to `https://vercel.com/new` and import the repository.
-3. Set the Root Directory to `frontend`.
+3. Set the Root Directory to `project`.
 4. Framework preset is detected as Next.js automatically.
 5. Add all eight environment variables from the table above. Do not add any local only flags such as `PRAXIS_DISABLE_AUTH_RATELIMIT`.
 6. Click Deploy.

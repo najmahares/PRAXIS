@@ -38,8 +38,8 @@ env/
 # ─── Runtime data ─────────────────────────────────────────
 data/*
 !data/README.md
-frontend/data/*
-!frontend/data/README.md
+project/data/*
+!project/data/README.md
 
 # ─── Logs ─────────────────────────────────────────────────
 *.log
