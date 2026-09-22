@@ -85,8 +85,8 @@ function LoginPageInner() {
     <AuthShell
       title="Welcome back"
       subtitle="Continue building better judgment."
-      quote="Practice turns knowledge into judgment."
-      attribution="PRAXIS learner"
+      quote="The intelligent investor is a realist who sells to optimists and buys from pessimists."
+      attribution="Benjamin Graham"
       footer={
         <>
           New to PRAXIS?{" "}
@@ -183,10 +183,10 @@ function LoginPageInner() {
             />
             Remember me
           </label>
-            <Link href="/forgot" style={linkStyle}>
-              Forgot password?
-            </Link>
-          </div>
+          <Link href="/forgot" style={linkStyle}>
+            Forgot password?
+          </Link>
+        </div>
 
         <button
           type="submit"
@@ -214,11 +214,11 @@ function LoginPageInner() {
           <span style={{ marginLeft: 10 }}>Continue with Google</span>
         </button>
 
-        
-              <p className="praxis-oauth-note">
-          You'll be redirected to Google. Authentication is handled securely by our provider.
+        <p className="praxis-oauth-note">
+          You'll be redirected to Google. Authentication is handled securely by
+          our provider.
         </p>
-        </form>
+      </form>
     </AuthShell>
   );
 }
@@ -250,7 +250,13 @@ export default function LoginPagePage() {
   return (
     <Suspense
       fallback={
-        <div style={{ padding: 40, textAlign: "center", color: "var(--color-text-muted)" }}>
+        <div
+          style={{
+            padding: 40,
+            textAlign: "center",
+            color: "var(--color-text-muted)",
+          }}
+        >
           Loading…
         </div>
       }
