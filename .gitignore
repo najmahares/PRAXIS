@@ -1,0 +1,73 @@
+# ─── Secrets (never commit) ────────────────────────────────
+.env
+.env.*
+*.env.local
+.env.local
+**/.env.local
+**/.env
+
+# ─── VS Code local history (leaks everything you edit) ─────
+.history/
+**/.history/
+
+# ─── Node / Next.js ───────────────────────────────────────
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+.open-next/
+**/.open-next/
+.wrangler/
+**/.wrangler/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# ─── Python (for the old backend, if we keep it) ──────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Runtime data ─────────────────────────────────────────
+data/*
+!data/README.md
+frontend/data/*
+!frontend/data/README.md
+
+# ─── Logs ─────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── OS / editor ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+!.env.local.example
+!.env.example
+
+!.env.local.example
+!.env.example
+
+# Playwright artifacts
+playwright-report/
+**/playwright-report/
+test-results/
+**/test-results/
+
+# Backup dirs
+*.bak/
+**/*.bak/
+*.bak
+**/*.bak

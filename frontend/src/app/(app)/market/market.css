@@ -1,0 +1,1530 @@
+.praxis-market-header {
+  margin-bottom: 28px;
+}
+
+.praxis-market-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.praxis-market-subtitle {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-snapshot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 4px 10px;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-snapshot strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.praxis-market-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 20px;
+}
+
+.praxis-market-chip {
+  padding: 7px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.praxis-market-chip:hover {
+  border-color: var(--color-primary);
+}
+
+.praxis-market-chip[aria-pressed="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.praxis-market-chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+.praxis-market-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.praxis-market-sort select {
+  padding: 6px 10px;
+  font-size: 13px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.praxis-market-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.praxis-market-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.praxis-market-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+}
+
+.praxis-market-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.praxis-market-card-ticker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.praxis-market-card-name {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.praxis-market-sector {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.praxis-market-sector-banking {
+  background: var(--color-tint-blue-bg);
+  color: var(--color-tint-blue-fg);
+  border: 1px solid var(--color-tint-blue-border);
+}
+
+.praxis-market-sector-telecommunications {
+  background: var(--color-tint-teal-bg);
+  color: var(--color-tint-teal-fg);
+  border: 1px solid var(--color-tint-teal-border);
+}
+
+.praxis-market-sector-consumer-goods {
+  background: var(--color-tint-amber-bg);
+  color: var(--color-tint-amber-fg);
+  border: 1px solid var(--color-tint-amber-border);
+}
+
+.praxis-market-sector-energy {
+  background: var(--color-tint-rose-bg);
+  color: var(--color-tint-rose-fg);
+  border: 1px solid var(--color-tint-rose-border);
+}
+
+.praxis-market-sector-insurance {
+  background: var(--color-tint-purple-bg);
+  color: var(--color-tint-purple-fg);
+  border: 1px solid var(--color-tint-purple-border);
+}
+
+.praxis-market-sector-investment {
+  background: var(--color-tint-green-bg);
+  color: var(--color-tint-green-fg);
+  border: 1px solid var(--color-tint-green-border);
+}
+
+.praxis-market-sector-manufacturing,
+.praxis-market-sector-construction,
+.praxis-market-sector-agriculture,
+.praxis-market-sector-commercial-services {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.praxis-market-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.praxis-market-price-value {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-market-price-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-market-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.praxis-market-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.praxis-market-stat-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-market-empty {
+  padding: 60px 24px;
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+}
+
+.praxis-market-empty-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.praxis-market-empty-body {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+
+.praxis-detail-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 28px;
+}
+
+.praxis-detail-ticker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.praxis-detail-name {
+  margin: 6px 0 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.praxis-detail-sector {
+  margin-top: 10px;
+}
+
+.praxis-detail-price-block {
+  text-align: right;
+}
+
+.praxis-detail-price {
+  display: block;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-detail-price-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.praxis-detail-stat {
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.praxis-detail-stat-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.praxis-detail-stat-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-detail-section {
+  margin-bottom: 28px;
+}
+
+.praxis-detail-section-title {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-detail-description {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: 720px;
+}
+
+.praxis-detail-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.praxis-detail-note {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-detail-note-strength {
+  background: var(--color-tint-green-bg);
+  border: 1px solid var(--color-tint-green-border);
+}
+
+.praxis-detail-note-risk {
+  background: var(--color-tint-amber-bg);
+  border: 1px solid var(--color-tint-amber-border);
+}
+
+.praxis-detail-note-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.praxis-detail-note-strength .praxis-detail-note-title {
+  color: var(--color-tint-green-fg);
+}
+
+.praxis-detail-note-risk .praxis-detail-note-title {
+  color: var(--color-tint-amber-fg);
+}
+
+.praxis-detail-note-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.praxis-detail-footnote {
+  padding: 14px 18px;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 720px;
+}
+
+.praxis-detail-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.praxis-detail-action-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.praxis-detail-action-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .praxis-market-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .praxis-detail-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .praxis-detail-price-block {
+    text-align: left;
+  }
+
+  .praxis-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .praxis-detail-notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+
+
+
+
+.praxis-market-pulse {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  margin: 20px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface, transparent);
+}
+
+.praxis-market-pulse-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-market-pulse-index {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+}
+
+.praxis-market-pulse-index-name {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-pulse-index-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.praxis-market-pulse-index-change {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.praxis-market-movers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0 24px;
+}
+
+@media (max-width: 720px) {
+  .praxis-market-movers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.praxis-market-movers-col {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.praxis-market-movers-title {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.praxis-market-movers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.praxis-market-movers-link {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-market-movers-item:last-child .praxis-market-movers-link {
+  border-bottom: none;
+}
+
+.praxis-market-movers-ticker {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.praxis-market-movers-price {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.praxis-market-movers-change {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.is-up { color: #15803d; }
+.is-down { color: #b91c1c; }
+
+.praxis-market-price-change {
+  display: block;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.praxis-detail-price-change {
+  display: block;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 4px 0 2px;
+}
+
+
+
+.praxis-compare-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  margin: 16px 0 28px;
+}
+
+@media (max-width: 640px) {
+  .praxis-compare-form { grid-template-columns: 1fr; }
+}
+
+.praxis-compare-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.praxis-compare-field input {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface, transparent);
+  color: var(--color-text);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.praxis-compare-submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-primary, #1e40af);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.praxis-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 720px) {
+  .praxis-compare-grid { grid-template-columns: 1fr; }
+}
+
+.praxis-compare-side {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.praxis-compare-side-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.praxis-compare-ticker {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.praxis-compare-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.praxis-compare-sector {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-compare-list {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 16px;
+}
+
+.praxis-compare-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-compare-row:last-child { border-bottom: none; }
+
+.praxis-compare-label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.praxis-compare-value {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-compare-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+.praxis-market-search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 12px;
+}
+
+.praxis-market-search {
+  flex: 1;
+  padding: 11px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface, transparent);
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.praxis-market-search:focus {
+  outline: none;
+  border-color: var(--color-primary, #1e40af);
+}
+
+.praxis-market-search-clear {
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+
+.praxis-market-loadmore-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 28px 0 8px;
+}
+
+.praxis-market-loadmore,
+.praxis-market-loadmore-secondary {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.praxis-market-loadmore {
+  border: none;
+  background: var(--color-primary, #1e40af);
+  color: #fff;
+}
+
+.praxis-market-loadmore-secondary {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+
+
+.praxis-market-card-stats-note {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+}
+
+
+
+.praxis-detail-volume {
+  display: block;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 4px 0 2px;
+}
+
+.praxis-detail-price-source {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.praxis-detail-section-note {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: -4px 0 12px;
+}
+
+
+
+
+
+.praxis-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.praxis-terminal-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (max-width: 720px) {
+  .praxis-terminal-hero { grid-template-columns: 1fr; }
+}
+
+.praxis-terminal-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.praxis-terminal-ticker {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.praxis-terminal-name {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.praxis-terminal-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.praxis-terminal-badge-live,
+.praxis-terminal-badge-stale {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.praxis-terminal-badge-live {
+  background: rgba(21, 128, 61, 0.12);
+  color: #15803d;
+}
+
+.praxis-terminal-badge-live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #15803d;
+  animation: praxis-pulse 2s ease-in-out infinite;
+}
+
+@keyframes praxis-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.praxis-terminal-badge-stale {
+  background: rgba(180, 83, 9, 0.12);
+  color: #b45309;
+}
+
+.praxis-terminal-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.praxis-terminal-price {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.praxis-terminal-change {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.praxis-terminal-source {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+
+
+.praxis-terminal-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-terminal-stats .praxis-detail-stat {
+  padding: 8px 12px;
+}
+
+
+
+.praxis-terminal-chart {
+  padding: 16px 0 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-terminal-chart-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.praxis-terminal-chart-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-terminal-chart-sub {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-terminal-chart-svg {
+  display: block;
+  width: 100%;
+  height: 260px;
+}
+
+.praxis-terminal-chart-empty {
+  position: relative;
+}
+
+.praxis-terminal-chart-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.praxis-terminal-chart-placeholder-price {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.praxis-terminal-chart-placeholder-text {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+
+
+.praxis-terminal-body {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 28px;
+  padding-top: 4px;
+}
+
+@media (max-width: 860px) {
+  .praxis-terminal-body { grid-template-columns: 1fr; }
+}
+
+.praxis-terminal-main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+.praxis-terminal-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-terminal-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.praxis-terminal-block-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-terminal-block-note {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: -4px 0 4px;
+}
+
+.praxis-terminal-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: start;
+  position: sticky;
+  top: 24px;
+}
+
+.praxis-terminal-action {
+  display: block;
+  padding: 11px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-text);
+  text-decoration: none;
+  background: var(--color-surface, transparent);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.praxis-terminal-action:hover {
+  border-color: var(--color-primary, #1e40af);
+}
+
+.praxis-terminal-action-primary {
+  background: var(--color-primary, #1e40af);
+  color: #fff;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.praxis-terminal-action-primary:hover {
+  background: #1e3a8a;
+}
+
+.praxis-terminal-side-note {
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 1px dashed var(--color-border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.praxis-terminal-side-note-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-terminal-side-note-body {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+
+
+.praxis-terminal-chart-fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-terminal-chart-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.praxis-terminal-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.praxis-terminal-chart-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.praxis-terminal-chart-axis {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+
+.praxis-terminal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0 12px;
+  margin-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-terminal-actions .praxis-terminal-action {
+  padding: 11px 20px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.praxis-terminal-actions .praxis-terminal-side-note {
+  margin-top: 0;
+  margin-left: auto;
+  max-width: 320px;
+  padding: 8px 12px;
+}
+
+.praxis-terminal-actions .praxis-terminal-side-note-body {
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  .praxis-terminal-actions .praxis-terminal-side-note {
+    margin-left: 0;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+
+
+.praxis-terminal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 16px;
+  margin-bottom: 12px;
+  width: fit-content;
+  border-radius: 8px;
+  background: #1e40af;
+  transition: background 0.15s ease;
+}
+
+.praxis-terminal-back:hover {
+  background: #1e3a8a;
+}
+
+.praxis-terminal-back-arrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  line-height: 1;
+}
+
+
+
+.praxis-market-cap-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 12px 0 0;
+}
+
+.praxis-market-loadmore:disabled,
+.praxis-market-loadmore-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+.praxis-skeleton {
+  background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%);
+  background-size: 200% 100%;
+  animation: praxis-skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes praxis-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.praxis-skeleton-title { height: 32px; width: 220px; margin-bottom: 14px; }
+.praxis-skeleton-text  { height: 14px; width: 100%; margin-bottom: 8px; }
+.praxis-skeleton-grid  {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.praxis-skeleton-card  { height: 180px; }
+
+
+
+
+
+
+
+
+
+.praxis-market-header {
+  position: relative;
+  padding: 24px 26px 22px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.16), transparent 62%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(37, 99, 235, 0.01) 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-market-title {
+  color: #1e3a8a;
+  letter-spacing: -0.02em;
+}
+
+.praxis-market-subtitle {
+  color: #475569;
+}
+
+.praxis-market-snapshot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e40af;
+  background: rgba(37, 99, 235, 0.10);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+
+.praxis-market-pulse {
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  background:
+    radial-gradient(800px 200px at 0% 0%, rgba(37, 99, 235, 0.10), transparent 65%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.045), rgba(37, 99, 235, 0.005)),
+    var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 10px 28px rgba(37, 99, 235, 0.08);
+  margin-bottom: 18px;
+}
+
+.praxis-market-pulse-text {
+  color: #0f172a;
+}
+
+.praxis-market-pulse-index-name {
+  color: #1e40af;
+}
+
+
+.praxis-market-movers {
+  margin: 0 0 22px;
+  gap: 18px;
+}
+
+.praxis-market-movers-col {
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.20);
+  background:
+    radial-gradient(400px 120px at 100% 0%, rgba(37, 99, 235, 0.06), transparent 65%),
+    var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.05),
+    0 10px 26px rgba(37, 99, 235, 0.07);
+}
+
+.praxis-market-movers-title {
+  color: #1e40af;
+}
+
+.praxis-market-movers-link {
+  border-bottom-color: rgba(37, 99, 235, 0.10);
+}
+
+.praxis-market-movers-ticker {
+  color: #1e3a8a;
+}
+
+
+.praxis-market-search {
+  border-color: rgba(37, 99, 235, 0.22);
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent),
+    var(--color-surface);
+}
+
+.praxis-market-search:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+.praxis-market-search-clear {
+  border-color: rgba(37, 99, 235, 0.20);
+  color: #1e40af;
+}
+
+.praxis-market-search-clear:hover {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: #1e40af;
+}
+
+
+.praxis-market-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  background: var(--color-surface);
+  color: #475569;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.praxis-market-chip:hover {
+  border-color: #1e40af;
+  color: #1e40af;
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.praxis-market-chip[aria-pressed="true"] {
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #fff;
+  border-color: #1e3a8a;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.30);
+}
+
+
+.praxis-market-sort select {
+  border-color: rgba(37, 99, 235, 0.22);
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+
+.praxis-market-grid {
+  gap: 16px;
+}
+
+.praxis-market-card {
+  padding: 18px 20px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background:
+    radial-gradient(400px 110px at 100% 0%, rgba(37, 99, 235, 0.06), transparent 65%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent 60%),
+    var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.05),
+    0 8px 24px rgba(37, 99, 235, 0.07);
+  transition: all 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.praxis-market-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1e40af, rgba(37, 99, 235, 0.10) 50%, transparent);
+}
+
+.praxis-market-card:hover {
+  border-color: #1e40af;
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.10),
+    0 18px 40px rgba(37, 99, 235, 0.18);
+}
+
+.praxis-market-card-ticker {
+  color: #1e3a8a;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.praxis-market-card-name {
+  color: #0f172a;
+}
+
+.praxis-market-price-value {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.praxis-market-stat-label {
+  color: #1e40af;
+  opacity: 0.9;
+}
+
+.praxis-market-stat-value {
+  color: #0f172a;
+}
+
+.praxis-market-card-stats-note {
+  color: #64748b;
+}
+
+
+.praxis-market-loadmore {
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.28);
+}
+
+.praxis-market-loadmore-secondary {
+  border-color: rgba(37, 99, 235, 0.22);
+  color: #1e40af;
+}
+
+.praxis-market-loadmore-secondary:hover {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: #1e40af;
+}
+
+
+.praxis-market-empty {
+  border: 1px dashed rgba(37, 99, 235, 0.30);
+  background:
+    radial-gradient(600px 200px at 50% 0%, rgba(37, 99, 235, 0.05), transparent 65%),
+    var(--color-surface);
+  padding: 60px 24px;
+  border-radius: 18px;
+}
+
+.praxis-market-empty-title {
+  color: #1e3a8a;
+}
+

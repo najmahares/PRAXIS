@@ -1,0 +1,549 @@
+
+
+
+
+.praxis-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 60px;
+  max-width: 1020px;
+}
+
+
+.praxis-progress-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.16), transparent 62%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(37, 99, 235, 0.01) 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-progress-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-progress-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1e3a8a;
+  margin: 4px 0 0;
+}
+
+.praxis-progress-sub {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 6px 0 0;
+  max-width: 520px;
+}
+
+.praxis-progress-day-chip {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1e40af;
+  flex-shrink: 0;
+}
+
+
+.praxis-progress-overall {
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.12), transparent 62%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.04), transparent 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-progress-overall-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.praxis-progress-overall-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.praxis-progress-overall-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-progress-overall-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1e3a8a;
+}
+
+.praxis-progress-overall-right {
+  display: flex;
+  gap: 18px;
+  font-size: 12.5px;
+  color: #475569;
+}
+
+.praxis-progress-overall-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.10);
+  overflow: hidden;
+}
+
+.praxis-progress-overall-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  transition: width 0.4s ease;
+}
+
+
+.praxis-progress-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin: 0 0 14px;
+}
+
+
+.praxis-progress-signals {
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.10), transparent 62%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.03), transparent 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-progress-signals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.praxis-progress-band {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.praxis-progress-band.is-strong {
+  border-color: rgba(21, 128, 61, 0.28);
+  background:
+    radial-gradient(300px 90px at 100% 0%, rgba(21, 128, 61, 0.06), transparent 65%),
+    var(--color-surface);
+}
+.praxis-progress-band.is-developing {
+  border-color: rgba(37, 99, 235, 0.28);
+  background:
+    radial-gradient(300px 90px at 100% 0%, rgba(37, 99, 235, 0.06), transparent 65%),
+    var(--color-surface);
+}
+.praxis-progress-band.is-needs {
+  border-color: rgba(217, 119, 6, 0.30);
+  background:
+    radial-gradient(300px 90px at 100% 0%, rgba(217, 119, 6, 0.06), transparent 65%),
+    var(--color-surface);
+}
+
+.praxis-progress-band-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.is-strong .praxis-progress-band-label { color: #15803d; }
+.is-developing .praxis-progress-band-label { color: #1e40af; }
+.is-needs .praxis-progress-band-label { color: #b45309; }
+
+.praxis-progress-band-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.praxis-progress-band-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.praxis-progress-band-concept {
+  font-size: 13.5px;
+  color: #0f172a;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.praxis-progress-band-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+
+.praxis-progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 860px) {
+  .praxis-progress-grid { grid-template-columns: 1fr; }
+}
+
+.praxis-progress-panel {
+  padding: 22px 24px;
+  border-radius: 18px;
+  background:
+    radial-gradient(500px 140px at 100% 0%, rgba(37, 99, 235, 0.06), transparent 65%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.20);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.05),
+    0 10px 28px rgba(37, 99, 235, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+
+.praxis-progress-tier-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.praxis-progress-tier {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+}
+.praxis-progress-tier:last-child { border-bottom: none; }
+
+.praxis-progress-tier-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.praxis-progress-tier-stat {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: #64748b;
+}
+
+
+.praxis-progress-practice-list {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-progress-practice-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.praxis-progress-practice-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.praxis-progress-practice-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.10);
+  overflow: hidden;
+}
+
+.praxis-progress-practice-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  transition: width 0.4s ease;
+}
+
+.praxis-progress-practice-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  color: #64748b;
+  min-width: 50px;
+  text-align: right;
+}
+
+.praxis-progress-practice-meta {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+
+.praxis-progress-cta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 12px;
+}
+.praxis-progress-cta:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+
+.praxis-progress-portfolio {
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 200px at 0% 0%, rgba(37, 99, 235, 0.10), transparent 62%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.03), transparent 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-progress-portfolio-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.praxis-progress-portfolio-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.praxis-progress-cell-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-progress-cell-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.praxis-progress-cell-value.is-up { color: #15803d; }
+.praxis-progress-cell-value.is-down { color: #b91c1c; }
+
+.praxis-progress-portfolio--empty .praxis-progress-empty {
+  margin: 4px 0 12px;
+}
+
+
+.praxis-progress-activity {
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 200px at 0% 0%, rgba(37, 99, 235, 0.08), transparent 62%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.20);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.05),
+    0 10px 28px rgba(37, 99, 235, 0.08);
+}
+
+.praxis-progress-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.praxis-progress-event {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
+}
+.praxis-progress-event:last-child { border-bottom: none; }
+
+.praxis-progress-event-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  background: #94a3b8;
+}
+.praxis-progress-event.is-practice .praxis-progress-event-dot { background: #7c3aed; }
+.praxis-progress-event.is-trade .praxis-progress-event-dot { background: #1e40af; }
+.praxis-progress-event.is-memory .praxis-progress-event-dot { background: #94a3b8; }
+
+.praxis-progress-event-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.praxis-progress-event-title {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #0f172a;
+}
+.praxis-progress-event-title a {
+  color: #1e3a8a;
+  text-decoration: none;
+}
+.praxis-progress-event-title a:hover {
+  text-decoration: underline;
+}
+
+.praxis-progress-event-detail {
+  font-size: 12px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.praxis-progress-event-time {
+  font-size: 11.5px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+
+.praxis-progress-empty {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+
+
+.praxis-progress-activity-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.praxis-progress-activity-head .praxis-progress-section-title {
+  margin: 0;
+}
+
+.praxis-progress-activity-toggle {
+  padding: 6px 14px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: 999px;
+  background: transparent;
+  color: #1e40af;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.praxis-progress-activity-toggle:hover {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: #1e40af;
+}
+
+
+
+.praxis-progress-timeline {
+  margin-top: 16px;
+  gap: 0;
+}
+
+.praxis-progress-timeline-item {
+  list-style: none;
+}
+
+.praxis-progress-day-header {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+  padding: 18px 0 8px;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+  margin-bottom: 6px;
+}
+
+.praxis-progress-timeline-item:first-child .praxis-progress-day-header {
+  padding-top: 6px;
+}
+
+.praxis-progress-event {
+  border-bottom: none;
+  padding: 8px 0;
+}
+
+.praxis-progress-event + .praxis-progress-event {
+  padding-top: 8px;
+}

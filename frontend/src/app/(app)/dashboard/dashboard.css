@@ -1,0 +1,1480 @@
+
+
+
+
+.praxis-dash-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 0 60px;
+}
+
+
+.praxis-dash-card {
+  padding: 22px 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(37, 99, 235, 0.20);
+  background:
+    radial-gradient(500px 140px at 100% 0%, rgba(37, 99, 235, 0.06), transparent 65%),
+    linear-gradient(180deg, rgba(37, 99, 235, 0.02), transparent 60%),
+    var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.05),
+    0 10px 28px rgba(37, 99, 235, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.praxis-dash-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.praxis-dash-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-dash-card-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+.praxis-dash-card-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+}
+.praxis-dash-card-link:hover { text-decoration: underline; }
+
+.praxis-dash-empty {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.praxis-dash-empty-link { color: #1e40af; font-weight: 600; text-decoration: none; }
+.praxis-dash-empty-link:hover { text-decoration: underline; }
+
+.praxis-dash-hint {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  margin: 8px 0 0;
+  font-style: italic;
+}
+
+
+.praxis-dash-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 26px 30px;
+  border-radius: 20px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.18), transparent 62%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.01) 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 16px 44px rgba(37, 99, 235, 0.12);
+}
+
+.praxis-dash-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.praxis-dash-hero-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-dash-hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1e3a8a;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.praxis-dash-hero-sub {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 2px 0 0;
+  max-width: 640px;
+}
+
+.praxis-dash-streak {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.praxis-dash-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.praxis-dash-hero-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-dash-hero-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.praxis-dash-hero-change {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 700;
+}
+.praxis-dash-hero-change.is-up { color: #15803d; }
+.praxis-dash-hero-change.is-down { color: #b91c1c; }
+
+.praxis-dash-hero-cta {
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.30);
+}
+
+
+.praxis-dash-row-2 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+}
+
+.praxis-dash-row-3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 1080px) {
+  .praxis-dash-row-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .praxis-dash-row-2,
+  .praxis-dash-row-3 { grid-template-columns: 1fr; }
+  .praxis-dash-hero { grid-template-columns: 1fr; }
+  .praxis-dash-hero-right { align-items: flex-start; }
+}
+
+
+.praxis-dash-activity-chart {
+  min-height: 260px;
+}
+
+.praxis-dash-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+}
+
+.praxis-dash-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.praxis-dash-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+.praxis-dash-legend-dot.is-trade { background: #1e40af; }
+.praxis-dash-legend-dot.is-practice { background: #0d9488; }
+
+.praxis-dash-bars {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  height: 190px;
+  align-items: end;
+  margin-top: 6px;
+}
+
+.praxis-dash-bar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  height: 100%;
+}
+
+.praxis-dash-bar-track {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.praxis-dash-bar-empty {
+  width: 60%;
+  height: 3px;
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 2px;
+  align-self: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.praxis-dash-bar-segment {
+  width: 60%;
+  min-height: 3px;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.4s ease;
+}
+.praxis-dash-bar-segment.is-trade { background: linear-gradient(180deg, #3b82f6, #1e40af); }
+.praxis-dash-bar-segment.is-practice { background: linear-gradient(180deg, #14b8a6, #0d9488); }
+
+.praxis-dash-bar-label {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+
+.praxis-dash-balance {
+  background:
+    radial-gradient(600px 200px at 100% 0%, rgba(37, 99, 235, 0.20), transparent 65%),
+    linear-gradient(135deg, #1e3a8a, #1e3a8a 60%, #1e40af);
+  border-color: transparent;
+  color: #fff;
+  box-shadow:
+    0 1px 2px rgba(30, 58, 138, 0.20),
+    0 18px 44px rgba(30, 58, 138, 0.28);
+}
+
+.praxis-dash-balance .praxis-dash-card-label,
+.praxis-dash-balance-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.praxis-dash-balance-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.15;
+  margin-top: 4px;
+}
+
+.praxis-dash-balance-sub {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.80);
+  margin-top: 4px;
+}
+
+.praxis-dash-balance-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-top: 12px;
+}
+.praxis-dash-balance-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+.praxis-dash-balance-fill.is-cash { background: #cbd5e1; }
+.praxis-dash-balance-fill.is-invested { background: #22d3ee; }
+
+.praxis-dash-balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin: 16px 0 0;
+}
+
+.praxis-dash-balance-grid dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.praxis-dash-balance-grid dd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 2px 0 0;
+}
+
+
+.praxis-dash-holdings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.praxis-dash-holding {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 8px;
+  margin: 0 -8px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+.praxis-dash-holding:hover { background: rgba(37, 99, 235, 0.05); }
+
+.praxis-dash-holding-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.praxis-dash-holding-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.praxis-dash-holding-ticker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+.praxis-dash-holding-name {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.praxis-dash-holding-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.praxis-dash-holding-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.praxis-dash-holding-pnl {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.praxis-dash-holding-pnl.is-up { color: #15803d; }
+.praxis-dash-holding-pnl.is-down { color: #b91c1c; }
+
+
+.praxis-dash-sector-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.praxis-dash-donut-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.praxis-dash-donut {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.praxis-dash-donut-center {
+  position: absolute;
+  inset: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.15);
+  text-align: center;
+  padding: 4px;
+}
+
+.praxis-dash-donut-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-dash-donut-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.praxis-dash-sector-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.praxis-dash-sector-row {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.praxis-dash-sector-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.praxis-dash-sector-name {
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.praxis-dash-sector-pct {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+
+.praxis-dash-concepts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-dash-concept {
+  display: grid;
+  grid-template-columns: 8px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
+}
+.praxis-dash-concept:last-child { border-bottom: none; }
+
+.praxis-dash-concept-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.praxis-dash-concept.is-strong .praxis-dash-concept-dot { background: #15803d; }
+.praxis-dash-concept.is-developing .praxis-dash-concept-dot { background: #1e40af; }
+.praxis-dash-concept.is-needs .praxis-dash-concept-dot { background: #d97706; }
+
+.praxis-dash-concept-name {
+  font-size: 13px;
+  color: var(--color-text);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.praxis-dash-concept-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+
+.praxis-dash-progress-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.praxis-dash-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.praxis-dash-progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.10);
+  overflow: hidden;
+}
+
+.praxis-dash-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6, #1e40af);
+  transition: width 0.4s ease;
+}
+.praxis-dash-progress-fill.is-practice {
+  background: linear-gradient(90deg, #14b8a6, #0d9488);
+}
+
+.praxis-dash-progress-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  min-width: 62px;
+  text-align: right;
+}
+
+.praxis-dash-progress-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+.praxis-dash-progress-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.praxis-dash-progress-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.praxis-dash-progress-lbl {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+
+.praxis-dash-activity {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.praxis-dash-activity-item { min-width: 0; }
+
+.praxis-dash-activity-link {
+  display: grid;
+  grid-template-columns: 8px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 6px;
+  margin: 0 -6px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+.praxis-dash-activity-link:hover { background: rgba(37, 99, 235, 0.05); }
+
+.praxis-dash-activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+}
+.praxis-dash-activity-dot.is-trade { background: #1e40af; }
+.praxis-dash-activity-dot.is-practice { background: #0d9488; }
+.praxis-dash-activity-dot.is-memory { background: #7c3aed; }
+
+.praxis-dash-activity-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.praxis-dash-activity-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.praxis-dash-activity-sub {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.praxis-dash-activity-time {
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+
+.praxis-dash-recommend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 200px at 0% 0%, rgba(37, 99, 235, 0.12), transparent 62%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(37, 99, 235, 0.01) 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+.praxis-dash-recommend-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.praxis-dash-recommend-title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1e3a8a;
+}
+.praxis-dash-recommend-meta {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+
+
+
+.praxis-home {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 8px 0 60px;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.praxis-home-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 44px 48px;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(700px 260px at 100% 20%, rgba(255, 255, 255, 0.14), transparent 60%),
+    linear-gradient(135deg, #3b82f6 0%, #1e40af 45%, #1e3a8a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 18px 40px -20px rgba(37, 99, 235, 0.55);
+  color: #ffffff;
+  min-height: 220px;
+}
+
+.praxis-home-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.praxis-home-hero-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.praxis-home-hero-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0;
+  color: #ffffff;
+}
+
+.praxis-home-hero-sub {
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 480px;
+}
+
+.praxis-home-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.praxis-home-hero-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.24);
+}
+
+.praxis-home-hero-cta svg {
+  transition: transform 0.18s ease;
+}
+
+.praxis-home-hero-cta:hover svg {
+  transform: translateX(3px);
+}
+
+.praxis-home-hero-art {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 260px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.praxis-home-hero-art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.praxis-home-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.praxis-home-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.praxis-home-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-home-section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.praxis-home-section-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.praxis-home-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.praxis-home-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 24px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.18s ease;
+}
+
+.praxis-home-tile:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -18px rgba(37, 99, 235, 0.35);
+}
+
+.praxis-home-tile-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.praxis-home-tile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--color-tint-blue-bg);
+  border: 1px solid var(--color-tint-blue-border);
+  color: var(--color-tint-blue-fg);
+}
+
+.praxis-home-tile-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.praxis-home-tile-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.praxis-home-tile:hover .praxis-home-tile-arrow {
+  transform: translateX(4px);
+  color: var(--color-primary);
+}
+
+.praxis-home-tile-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-home-tile-sub {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.praxis-home-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 26px 28px;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.praxis-home-step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 18px;
+  border-left: 2px solid var(--color-tint-blue-border);
+}
+
+.praxis-home-step:first-child {
+  border-left-color: var(--color-primary);
+}
+
+.praxis-home-step-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-home-step-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-home-step-sub {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .praxis-home-hero {
+    padding: 32px 28px;
+  }
+  .praxis-home-hero-title {
+    font-size: 30px;
+  }
+  .praxis-home-hero-art {
+    display: none;
+  }
+  .praxis-home-tiles,
+  .praxis-home-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.praxis-home-tour-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-tint-blue-border);
+  background: var(--color-tint-blue-bg);
+  color: var(--color-tint-blue-fg);
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 0 rgba(37, 99, 235, 0.04);
+}
+
+.praxis-home-tour-btn:hover {
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px -10px rgba(37, 99, 235, 0.45);
+  transform: translateY(-1px);
+}
+
+.praxis-home-tour-btn svg:last-child {
+  transition: transform 0.18s ease;
+}
+
+.praxis-home-tour-btn:hover svg:last-child {
+  transform: translateX(3px);
+}
+
+
+
+
+
+.praxis-tour-full {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  background:
+    radial-gradient(1200px 500px at 50% 0%, rgba(37, 99, 235, 0.10), transparent 70%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  animation: praxis-tour-fade 0.24s ease;
+}
+
+@keyframes praxis-tour-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.praxis-tour-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 36px;
+}
+
+.praxis-tour-brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #1e3a8a;
+}
+
+.praxis-tour-top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.praxis-tour-step {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-tour-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.praxis-tour-close:hover {
+  background: rgba(148, 163, 184, 0.10);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.praxis-tour-progress {
+  height: 2px;
+  background: rgba(148, 163, 184, 0.15);
+  overflow: hidden;
+}
+
+.praxis-tour-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.praxis-tour-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.praxis-tour-icon {
+  width: 104px;
+  height: 104px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  color: #1e40af;
+  background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0.06));
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 8px 24px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-tour-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.praxis-tour-slide-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin-bottom: 18px;
+}
+
+.praxis-tour-slide-title {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #0f172a;
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+
+.praxis-tour-slide-body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin: 0 0 34px;
+  max-width: 580px;
+}
+
+.praxis-tour-slide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+  transition: all 0.15s ease;
+}
+
+.praxis-tour-slide-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.34);
+}
+
+.praxis-tour-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 36px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.praxis-tour-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.praxis-tour-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.praxis-tour-btn-ghost {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.praxis-tour-btn-ghost:not(:disabled):hover {
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.praxis-tour-btn-primary {
+  border: none;
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.26);
+}
+
+.praxis-tour-btn-primary:hover {
+  background: linear-gradient(180deg, #3b82f6, #1e40af);
+}
+
+.praxis-tour-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.praxis-tour-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.30);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.praxis-tour-dot.is-active {
+  width: 26px;
+  border-radius: 4px;
+  background: #1e40af;
+}
+
+@media (max-width: 720px) {
+  .praxis-tour-slide-title {
+    font-size: 32px;
+  }
+  .praxis-tour-slide-body {
+    font-size: 15px;
+  }
+  .praxis-tour-top,
+  .praxis-tour-bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+
+.praxis-dash-row-2.praxis-dash-row-single,
+.praxis-dash-row-3.praxis-dash-row-single {
+  grid-template-columns: 1fr;
+}
+
+.praxis-dash-row-3.praxis-dash-row-double {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+button.praxis-dash-jema-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 22px !important;
+  border: 1px solid #1e3a8a !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg, #2563eb 0%, #1e40af 60%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 6px 18px -8px rgba(37, 99, 235, 0.55) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  user-select: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+}
+
+button.praxis-dash-jema-cta:hover {
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 10px 26px -10px rgba(37, 99, 235, 0.75) !important;
+}
+
+button.praxis-dash-jema-cta:active {
+  transform: translateY(0) !important;
+}
+
+button.praxis-dash-jema-cta:focus,
+button.praxis-dash-jema-cta:focus-visible {
+  outline: none !important;
+}
+
+button.praxis-dash-jema-cta .praxis-dash-jema-cta-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+  color: #ffffff !important;
+}
+
+button.praxis-dash-jema-cta .praxis-dash-jema-cta-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+
+
+button.praxis-dash-jema-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 22px !important;
+  border: 1px solid #1e3a8a !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg, #2563eb 0%, #1e40af 60%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 6px 18px -8px rgba(37, 99, 235, 0.55) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  user-select: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+}
+
+button.praxis-dash-jema-cta:hover {
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 10px 26px -10px rgba(37, 99, 235, 0.75) !important;
+}
+
+button.praxis-dash-jema-cta:active {
+  transform: translateY(0) !important;
+}
+
+button.praxis-dash-jema-cta:focus,
+button.praxis-dash-jema-cta:focus-visible {
+  outline: none !important;
+}
+
+button.praxis-dash-jema-cta .praxis-dash-jema-cta-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+  color: #ffffff !important;
+}
+
+button.praxis-dash-jema-cta .praxis-dash-jema-cta-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+
+
+.praxis-welcome-shell {
+  min-height: 480px;
+  width: 100%;
+}
+
+
+
+.praxis-dash-progress-week {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-dash-progress-week-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.praxis-dash-progress-week-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-dash-progress-week-range {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.praxis-dash-progress-week-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.praxis-dash-progress-week-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

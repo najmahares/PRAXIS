@@ -1,0 +1,139 @@
+.praxis-settings-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.praxis-settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.praxis-settings-nav-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.praxis-settings-nav-link:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.praxis-settings-nav-link[aria-current="page"] {
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.praxis-settings-nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+.praxis-settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.praxis-settings-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.praxis-settings-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-settings-row:first-of-type {
+  padding-top: 0;
+}
+.praxis-settings-row:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.praxis-settings-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  color: var(--color-text);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.praxis-settings-input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.praxis-settings-input:disabled {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.praxis-settings-select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.praxis-settings-select:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+@media (max-width: 900px) {
+  .praxis-settings-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .praxis-settings-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .praxis-settings-nav-link {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .praxis-settings-nav-link {
+    transition: none;
+  }
+}

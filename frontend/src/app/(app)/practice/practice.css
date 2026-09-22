@@ -1,0 +1,1283 @@
+
+
+
+
+.praxis-practice,
+.praxis-practice-trade,
+.praxis-practice-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 0 60px;
+  max-width: 960px;
+}
+
+.praxis-practice-kicker {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-practice-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 4px 0 0;
+  color: var(--color-text);
+}
+
+.praxis-practice-primary,
+.praxis-practice-secondary,
+.praxis-practice-tertiary {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+.praxis-practice-primary {
+  background: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
+.praxis-practice-primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.praxis-practice-secondary { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+.praxis-practice-secondary:hover { border-color: #1e40af; color: #1e40af; }
+.praxis-practice-tertiary { background: transparent; color: var(--color-text-muted); border-color: transparent; font-size: 13px; }
+.praxis-practice-tertiary:hover { color: #b91c1c; }
+
+
+
+.praxis-practice-lib {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px 0 60px;
+}
+
+.praxis-practice-lib-head {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-practice-lib-sub {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.praxis-practice-level {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.praxis-practice-level-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.praxis-practice-level-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1e40af;
+  background: rgba(37, 99, 235, 0.10);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.praxis-practice-level-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.praxis-practice-level-count {
+  margin-left: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.praxis-practice-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+
+
+.praxis-practice-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.18s ease;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 6px 16px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.praxis-practice-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1e40af, transparent 80%);
+  opacity: 0.7;
+}
+
+.praxis-practice-card:hover {
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.12),
+    0 12px 28px rgba(37, 99, 235, 0.14);
+}
+
+.praxis-practice-card.is-done {
+  background: linear-gradient(180deg, rgba(21, 128, 61, 0.06), transparent 60%);
+  border-color: rgba(21, 128, 61, 0.30);
+}
+.praxis-practice-card.is-done::before {
+  background: linear-gradient(90deg, #15803d, transparent 80%);
+}
+
+.praxis-practice-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.praxis-practice-card-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.praxis-practice-card-type.is-scenario {
+  background: rgba(124, 58, 237, 0.12);
+  color: #7c3aed;
+}
+.praxis-practice-card-type.is-drill {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e40af;
+}
+.praxis-practice-card-type.is-mission {
+  background: rgba(217, 119, 6, 0.14);
+  color: #b45309;
+}
+
+.praxis-practice-card-check {
+  color: #15803d;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.praxis-practice-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.005em;
+}
+
+.praxis-practice-card-brief {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.praxis-practice-card-lesson {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1e40af;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+
+
+.praxis-practice-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 60px 20px;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+}
+
+.praxis-practice-empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.praxis-practice-empty-body {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  max-width: 440px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+
+
+.praxis-card-run {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 24px 0 60px;
+  max-width: 780px;
+}
+
+.praxis-practice-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: #1e40af;
+  width: fit-content;
+  transition: background 0.15s ease;
+}
+.praxis-practice-back:hover { background: #1e3a8a; }
+
+.praxis-card-run-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.praxis-card-run-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.praxis-card-run-tag.is-scenario { background: rgba(124, 58, 237, 0.12); color: #7c3aed; }
+.praxis-card-run-tag.is-drill    { background: rgba(37, 99, 235, 0.12); color: #1e40af; }
+.praxis-card-run-tag.is-mission  { background: rgba(217, 119, 6, 0.14); color: #b45309; }
+
+.praxis-card-run-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.praxis-card-run-lesson {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.praxis-card-run-brief {
+  padding: 18px 22px;
+  border-left: 3px solid #1e40af;
+  border-radius: 0 10px 10px 0;
+  background: rgba(37, 99, 235, 0.04);
+}
+.praxis-card-run-brief p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-card-run-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.praxis-card-run-prompt {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+
+
+.praxis-card-run-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-card-run-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.praxis-card-run-choice:hover:not(:disabled) {
+  border-color: #1e40af;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.praxis-card-run-choice.is-selected {
+  border-color: #1e40af;
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.praxis-card-run-choice.is-best {
+  border-color: #15803d;
+  background: rgba(21, 128, 61, 0.06);
+}
+
+.praxis-card-run-choice:disabled { cursor: default; }
+
+.praxis-card-run-choice-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.praxis-card-run-choice-feedback {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+}
+
+
+
+.praxis-card-run-drill {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-card-run-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  resize: vertical;
+}
+.praxis-card-run-textarea:focus {
+  outline: none;
+  border-color: #1e40af;
+}
+
+.praxis-card-run-answer {
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.praxis-card-run-answer-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+.praxis-card-run-answer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text);
+  white-space: pre-wrap;
+}
+
+.praxis-card-run-jema {
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.05), transparent);
+  border: 1px solid rgba(124, 58, 237, 0.20);
+}
+
+.praxis-card-run-jema-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.praxis-card-run-jema-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.praxis-card-run-jema-btn {
+  padding: 7px 14px;
+  border: 1px solid #7c3aed;
+  border-radius: 8px;
+  background: transparent;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.praxis-card-run-jema-btn:hover { background: rgba(124, 58, 237, 0.08); }
+
+.praxis-card-run-jema-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre-wrap;
+}
+.praxis-card-run-jema-typing {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+.praxis-card-run-jema-empty {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+
+
+.praxis-card-run-mission {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-card-run-mission-result {
+  padding: 18px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.praxis-card-run-mission-result.is-pass {
+  background: rgba(21, 128, 61, 0.06);
+  border: 1px solid rgba(21, 128, 61, 0.25);
+}
+.praxis-card-run-mission-result.is-fail {
+  background: rgba(217, 119, 6, 0.06);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+.praxis-card-run-mission-result-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.is-pass .praxis-card-run-mission-result-title { color: #15803d; }
+.is-fail .praxis-card-run-mission-result-title { color: #b45309; }
+.praxis-card-run-mission-result p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+
+
+.praxis-card-run-verdict {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin: 8px 0 0;
+}
+.praxis-card-run-verdict.is-pass { background: rgba(21, 128, 61, 0.08); color: #15803d; }
+.praxis-card-run-verdict.is-open { background: rgba(217, 119, 6, 0.08); color: #b45309; }
+
+.praxis-card-run-error {
+  color: #b91c1c;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef2f2;
+  margin: 0;
+}
+
+.praxis-card-run-foot {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+.praxis-card-run-foot-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+}
+.praxis-card-run-foot-link.is-muted { color: var(--color-text-muted); font-weight: 500; }
+.praxis-card-run-foot-link:hover { text-decoration: underline; }
+
+
+
+.praxis-card-run-explain {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.praxis-card-run-explain-btn {
+  align-self: flex-start;
+  padding: 9px 16px;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.05);
+  color: #7c3aed;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+.praxis-card-run-explain-btn:hover {
+  background: rgba(124, 58, 237, 0.10);
+  border-color: #7c3aed;
+}
+
+.praxis-card-run-explain-panel {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.06), rgba(124, 58, 237, 0.02));
+  border: 1px solid rgba(124, 58, 237, 0.20);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-card-run-explain-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.praxis-card-run-explain-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre-wrap;
+}
+
+.praxis-card-run-explain-typing {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+
+
+.praxis-practice-lib-error {
+  color: #b91c1c;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef2f2;
+  margin: 0;
+}
+
+.praxis-practice-type-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-practice-type-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 4px;
+}
+
+.praxis-practice-type-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.praxis-practice-type-tag.is-scenario { background: rgba(124, 58, 237, 0.12); color: #7c3aed; }
+.praxis-practice-type-tag.is-drill    { background: rgba(37, 99, 235, 0.12); color: #1e40af; }
+.praxis-practice-type-tag.is-mission  { background: rgba(217, 119, 6, 0.14); color: #b45309; }
+
+.praxis-practice-type-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.praxis-practice-type-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.praxis-practice-gen-btn {
+  padding: 6px 12px;
+  border: 1px solid #1e40af;
+  border-radius: 7px;
+  background: transparent;
+  color: #1e40af;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+.praxis-practice-gen-btn:hover:not(:disabled) { background: rgba(37, 99, 235, 0.08); }
+.praxis-practice-gen-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.praxis-practice-gen-btn.is-muted {
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+.praxis-practice-gen-btn.is-muted:hover:not(:disabled) {
+  color: #b91c1c;
+  border-color: rgba(185, 28, 28, 0.4);
+  background: rgba(185, 28, 28, 0.04);
+}
+
+
+
+.praxis-practice-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.praxis-practice-group-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.praxis-practice-group-card:hover {
+  border-color: #1e40af;
+  transform: translateY(-2px);
+}
+
+.praxis-practice-group-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.praxis-practice-group-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.praxis-practice-group-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+.praxis-practice-group-tag.is-scenario { background: rgba(124, 58, 237, 0.12); color: #7c3aed; }
+.praxis-practice-group-tag.is-drill    { background: rgba(37, 99, 235, 0.12); color: #1e40af; }
+.praxis-practice-group-tag.is-mission  { background: rgba(217, 119, 6, 0.14); color: #b45309; }
+
+.praxis-practice-group-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.praxis-practice-group-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.praxis-practice-group-tagline {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.praxis-practice-group-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.06);
+  margin-top: 4px;
+}
+.praxis-practice-group-preview-item {
+  font-size: 12px;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.praxis-practice-group-preview-more {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.praxis-practice-group-cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.praxis-practice-group-actions {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--color-border);
+  background: rgba(148, 163, 184, 0.03);
+}
+
+
+
+.praxis-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+}
+.praxis-group-item:hover {
+  border-color: #1e40af;
+  background: rgba(37, 99, 235, 0.03);
+}
+.praxis-group-item.is-done {
+  background: linear-gradient(180deg, rgba(21, 128, 61, 0.05), transparent);
+  border-color: rgba(21, 128, 61, 0.25);
+}
+
+.praxis-group-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.praxis-group-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.praxis-group-item-brief {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.praxis-group-item-status {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #15803d;
+}
+.praxis-group-item:not(.is-done) .praxis-group-item-status {
+  color: var(--color-text-muted);
+}
+
+
+
+.praxis-card-run-jema-answer {
+  padding: 20px 22px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.07), rgba(124, 58, 237, 0.02));
+  border: 1px solid rgba(124, 58, 237, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.praxis-card-run-jema-answer-head {
+  display: flex;
+  align-items: center;
+}
+.praxis-card-run-jema-answer-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+.praxis-card-run-jema-answer-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre-wrap;
+}
+.praxis-card-run-jema-answer-typing {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+
+
+.praxis-practice-group-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.05);
+}
+.praxis-practice-group-card:hover {
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.12), 0 12px 26px rgba(37, 99, 235, 0.12);
+}
+
+
+.praxis-practice-group-actions,
+.praxis-practice-group-cta,
+.praxis-practice-group-preview,
+.praxis-practice-gen-btn {
+  
+}
+
+
+
+.praxis-group-preparing {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.06), rgba(124, 58, 237, 0.02));
+  border-radius: 12px;
+}
+
+.praxis-group-preparing-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(124, 58, 237, 0.25);
+  border-top-color: #7c3aed;
+  animation: praxis-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes praxis-spin {
+  to { transform: rotate(360deg); }
+}
+
+.praxis-group-preparing-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7c3aed;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.praxis-group-preparing-body {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.praxis-group-status {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+
+
+.praxis-group-foot {
+  margin-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.praxis-group-foot-note {
+  font-size: 13px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-group-foot-locked {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.06);
+  border: 1px dashed var(--color-border);
+}
+
+.praxis-group-foot-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.praxis-practice-primary:disabled,
+.praxis-practice-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+
+.praxis-card-run-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.01));
+  margin-bottom: 6px;
+}
+
+.praxis-card-run-steps-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-card-run-steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-card-run-steps-item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.praxis-card-run-steps-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e40af;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.praxis-card-run-steps-text {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-text);
+  padding-top: 1px;
+}
+
+
+
+.praxis-page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.praxis-page-loading-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.praxis-page-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid rgba(37, 99, 235, 0.18);
+  border-top-color: #1e40af;
+  animation: praxis-page-spin 0.85s linear infinite;
+}
+
+@keyframes praxis-page-spin {
+  to { transform: rotate(360deg); }
+}
+
+.praxis-page-loading-text {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+
+
+.praxis-card-run-continue {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-card-run-continue-btn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), rgba(37, 99, 235, 0.02));
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+}
+.praxis-card-run-continue-btn:hover {
+  border-color: #1e40af;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.03));
+  transform: translateY(-1px);
+}
+
+.praxis-card-run-continue-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1e40af;
+}
+
+.praxis-card-run-continue-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.praxis-card-run-continue-arrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 20px;
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.praxis-card-run-continue-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgba(21, 128, 61, 0.06);
+  border: 1px solid rgba(21, 128, 61, 0.22);
+}
+.praxis-card-run-continue-end p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #15803d;
+}
+
+
+
+.praxis-group-difficulty {
+  display: flex;
+  gap: 8px;
+}
+
+.praxis-group-difficulty-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+.praxis-group-difficulty-btn:hover {
+  border-color: #1e40af;
+  color: #1e40af;
+}
+.praxis-group-difficulty-btn.is-active {
+  border-color: #1e40af;
+  background: rgba(37, 99, 235, 0.10);
+  color: #1e40af;
+}
+
+
+
+.praxis-group-diff-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.praxis-group-diff-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.praxis-group-diff-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-group-diff-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e40af;
+  text-transform: capitalize;
+}
+
+.praxis-group-diff-hint {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+
+
+.praxis-practice-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 40px 36px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  margin-top: 8px;
+}
+
+.praxis-practice-empty-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.praxis-practice-empty-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+  max-width: 520px;
+}

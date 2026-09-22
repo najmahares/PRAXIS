@@ -1,0 +1,231 @@
+.praxis-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.praxis-profile-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.praxis-profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af, #7c3aed);
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.praxis-profile-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.praxis-profile-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.praxis-profile-email {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.praxis-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-profile-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.praxis-profile-meta-label {
+  color: var(--color-text-muted);
+}
+
+.praxis-profile-meta-value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.praxis-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.praxis-profile-badge-ok {
+  background: var(--color-tint-green-bg);
+  color: var(--color-tint-green-fg);
+}
+
+.praxis-profile-badge-warn {
+  background: var(--color-tint-amber-bg);
+  color: var(--color-tint-amber-fg);
+}
+
+.praxis-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.praxis-profile-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.praxis-profile-input,
+.praxis-profile-textarea {
+  width: 100%;
+  padding: 0 12px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 8px;
+  color: var(--color-text);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.praxis-profile-input {
+  height: 42px;
+}
+
+.praxis-profile-textarea {
+  min-height: 96px;
+  padding: 10px 12px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.praxis-profile-input:focus-visible,
+.praxis-profile-textarea:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.praxis-profile-input:disabled {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.praxis-profile-hint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.praxis-profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+}
+
+.praxis-profile-saved {
+  font-size: 13px;
+  color: var(--color-success);
+}
+
+.praxis-profile-save {
+  height: 40px;
+  padding: 0 22px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.praxis-profile-save:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.praxis-profile-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.praxis-profile-alert {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--color-danger);
+  background: var(--color-danger-soft);
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+}
+
+.praxis-profile-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-profile-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.praxis-profile-stat-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.praxis-profile-stat-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .praxis-profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .praxis-profile-input,
+  .praxis-profile-textarea {
+    transition: none;
+  }
+}

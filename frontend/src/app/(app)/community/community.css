@@ -1,0 +1,778 @@
+.praxis-community {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 0 60px;
+  max-width: 780px;
+}
+
+.praxis-community-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.16), transparent 62%),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(37, 99, 235, 0.01) 60%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+
+.praxis-community-kicker {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: #1e40af;
+}
+.praxis-community-title {
+  font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+  color: #1e3a8a; margin: 4px 0 0;
+}
+.praxis-community-sub {
+  font-size: 13px; line-height: 1.55; color: #475569;
+  margin: 8px 0 0; max-width: 460px;
+}
+.praxis-community-compose-btn {
+  padding: 10px 18px; border-radius: 10px;
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  color: #fff; font-size: 13px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.28);
+  flex-shrink: 0; font-family: inherit;
+}
+
+.praxis-community-filters {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.praxis-community-chip {
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  background: var(--color-surface); color: #475569;
+  font-size: 12.5px; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: all 0.15s ease;
+}
+.praxis-community-chip:hover { border-color: #1e40af; color: #1e40af; }
+.praxis-community-chip.is-active {
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+  border-color: #1e3a8a; color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.28);
+}
+
+.praxis-community-feed {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.praxis-community-post {
+  border-radius: 14px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  background:
+    radial-gradient(400px 110px at 100% 0%, rgba(37, 99, 235, 0.05), transparent 65%),
+    var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.04),
+    0 6px 18px rgba(37, 99, 235, 0.05);
+  transition: all 0.15s ease;
+}
+.praxis-community-post:hover {
+  border-color: #1e40af;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.08),
+    0 14px 32px rgba(37, 99, 235, 0.12);
+}
+.praxis-community-post-link {
+  display: block; padding: 18px 20px;
+  text-decoration: none; color: inherit;
+}
+.praxis-community-post-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.praxis-community-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 12px; font-weight: 700;
+  flex-shrink: 0;
+}
+.praxis-community-avatar.is-small { width: 28px; height: 28px; font-size: 11px; }
+.praxis-community-post-meta {
+  display: flex; flex-direction: column; gap: 1px;
+  min-width: 0; flex: 1;
+}
+.praxis-community-post-author {
+  font-size: 13px; font-weight: 600; color: #0f172a;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.praxis-community-post-official {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em;
+  color: #1e40af; background: rgba(37, 99, 235, 0.10);
+  padding: 2px 6px; border-radius: 4px;
+}
+.praxis-community-post-time {
+  font-size: 11.5px; color: #94a3b8;
+}
+.praxis-community-post-kind {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 6px;
+}
+.praxis-community-post-kind.is-discussion { background: rgba(37, 99, 235, 0.10); color: #1e40af; }
+.praxis-community-post-kind.is-question { background: rgba(124, 58, 237, 0.10); color: #7c3aed; }
+.praxis-community-post-kind.is-win { background: rgba(21, 128, 61, 0.12); color: #15803d; }
+.praxis-community-post-kind.is-challenge { background: rgba(217, 119, 6, 0.14); color: #b45309; }
+.praxis-community-post-pin {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: #64748b;
+}
+
+.praxis-community-post-title {
+  font-size: 16px; font-weight: 700; margin: 0 0 6px;
+  color: #1e3a8a; letter-spacing: -0.01em;
+}
+.praxis-community-post-body {
+  font-size: 13.5px; line-height: 1.6; color: #0f172a;
+  margin: 0;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.praxis-community-post-foot {
+  display: flex; gap: 16px; margin-top: 12px;
+  font-size: 12px; color: #64748b;
+}
+
+
+.praxis-community-empty {
+  padding: 60px 24px; text-align: center;
+  border: 1px dashed rgba(37, 99, 235, 0.30);
+  border-radius: 18px;
+  background:
+    radial-gradient(600px 200px at 50% 0%, rgba(37, 99, 235, 0.05), transparent 65%),
+    var(--color-surface);
+}
+.praxis-community-empty-title {
+  font-size: 18px; font-weight: 700; margin: 0 0 8px; color: #1e3a8a;
+}
+.praxis-community-empty-body {
+  font-size: 13px; color: #64748b; margin: 0; line-height: 1.55;
+}
+
+.praxis-community-modal-backdrop {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.praxis-community-modal {
+  width: 100%; max-width: 560px;
+  background: var(--color-surface); border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.30);
+  display: flex; flex-direction: column;
+}
+.praxis-community-modal-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+}
+.praxis-community-modal-title {
+  font-size: 16px; font-weight: 700; margin: 0; color: #1e3a8a;
+}
+.praxis-community-modal-close {
+  background: transparent; border: none;
+  font-size: 22px; line-height: 1; color: #64748b;
+  cursor: pointer; padding: 4px 8px;
+}
+.praxis-community-modal-body {
+  padding: 18px 22px; display: flex; flex-direction: column; gap: 14px;
+}
+.praxis-community-kind-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.praxis-community-field {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 12px; color: #64748b;
+}
+.praxis-community-field input,
+.praxis-community-field textarea {
+  padding: 10px 12px; font-size: 14px; font-family: inherit;
+  border: 1px solid rgba(37, 99, 235, 0.22); border-radius: 8px;
+  background: var(--color-surface); color: #0f172a;
+  resize: vertical;
+}
+.praxis-community-field input:focus,
+.praxis-community-field textarea:focus {
+  outline: none; border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.praxis-community-modal-note {
+  font-size: 11.5px; color: #94a3b8; margin: 0; line-height: 1.55;
+}
+.praxis-community-modal-foot {
+  padding: 14px 22px; display: flex; justify-content: flex-end; gap: 10px;
+  border-top: 1px solid rgba(37, 99, 235, 0.10);
+}
+.praxis-community-error {
+  color: #b91c1c; font-size: 12.5px; padding: 8px 10px;
+  border-radius: 8px; background: rgba(185, 28, 28, 0.08); margin: 0;
+}
+
+
+.praxis-community-detail {
+  display: flex; flex-direction: column; gap: 24px;
+  padding: 24px 0 60px; max-width: 780px;
+}
+.praxis-community-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: #fff;
+  text-decoration: none; padding: 9px 16px;
+  border-radius: 8px; background: #1e40af; width: fit-content;
+}
+.praxis-community-detail-post {
+  padding: 24px 26px; border-radius: 18px;
+  background:
+    radial-gradient(900px 240px at 0% 0%, rgba(37, 99, 235, 0.12), transparent 62%),
+    var(--color-surface);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 1px 2px rgba(37, 99, 235, 0.06),
+    0 14px 40px rgba(37, 99, 235, 0.10);
+}
+.praxis-community-detail-title {
+  font-size: 24px; font-weight: 700; margin: 12px 0 12px;
+  color: #1e3a8a; letter-spacing: -0.02em;
+}
+.praxis-community-detail-body {
+  font-size: 15px; line-height: 1.7; color: #0f172a;
+  white-space: pre-wrap;
+}
+.praxis-community-replies {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.praxis-community-replies-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: #1e40af; margin: 0;
+}
+.praxis-community-reply-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.praxis-community-reply {
+  display: flex; gap: 12px; padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: var(--color-surface);
+}
+.praxis-community-reply-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1; }
+.praxis-community-reply-meta {
+  display: flex; gap: 10px; align-items: baseline;
+}
+.praxis-community-reply-body {
+  font-size: 14px; line-height: 1.65; color: #0f172a;
+  margin: 0; white-space: pre-wrap;
+}
+.praxis-community-reply-box {
+  display: flex; flex-direction: column; gap: 10px; margin-top: 8px;
+}
+.praxis-community-reply-input {
+  padding: 12px 14px; border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: 10px; font-family: inherit; font-size: 14px;
+  background: var(--color-surface); color: #0f172a; resize: vertical;
+}
+.praxis-community-reply-input:focus {
+  outline: none; border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+
+
+
+.praxis-community {
+  max-width: 960px;
+}
+
+.praxis-community-post-inner {
+  padding: 24px 28px 20px;
+}
+
+.praxis-community-post-title {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0 0 10px;
+}
+
+.praxis-community-post-body {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1e293b;
+  -webkit-line-clamp: 6;
+}
+
+
+.praxis-community-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.praxis-community-chip-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+
+.praxis-community-post-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.praxis-community-post-kind span:first-child {
+  font-size: 12px;
+  line-height: 1;
+}
+
+
+.praxis-community-reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.praxis-community-reaction-icon {
+  font-size: 14px;
+  line-height: 1;
+  filter: grayscale(0.6);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.praxis-community-reaction:hover .praxis-community-reaction-icon,
+.praxis-community-reaction.is-active .praxis-community-reaction-icon {
+  filter: grayscale(0);
+  transform: scale(1.08);
+}
+
+.praxis-community-reaction-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.praxis-community-reaction-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e40af;
+  margin-left: 2px;
+}
+.praxis-community-reaction.is-active .praxis-community-reaction-count {
+  background: #1e40af;
+  color: #fff;
+}
+
+
+.praxis-community-feed {
+  gap: 16px;
+}
+
+.praxis-community-post-foot {
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+
+
+
+
+.praxis-community-post-topline {
+  position: relative;
+  display: block;
+}
+
+.praxis-community-post-topline .praxis-community-post-link {
+  display: block;
+  padding-right: 36px; 
+}
+
+
+.praxis-post-menu {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  z-index: 5;
+}
+
+.praxis-post-menu-trigger {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  padding: 0;
+  font-family: inherit;
+}
+.praxis-post-menu-trigger:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1e40af;
+}
+.praxis-post-menu-trigger[aria-expanded="true"] {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e40af;
+}
+
+.praxis-post-menu-dropdown {
+  position: absolute;
+  top: 34px;
+  min-width: 140px;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(37, 99, 235, 0.20);
+  background: var(--color-surface);
+  box-shadow:
+    0 4px 8px rgba(15, 23, 42, 0.06),
+    0 16px 40px rgba(15, 23, 42, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.praxis-post-menu-dropdown.is-right { right: 0; }
+.praxis-post-menu-dropdown.is-left { left: 0; }
+
+.praxis-post-menu-item {
+  padding: 9px 12px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s ease;
+}
+.praxis-post-menu-item:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1e40af;
+}
+.praxis-post-menu-item.is-danger:hover {
+  background: rgba(185, 28, 28, 0.08);
+  color: #b91c1c;
+}
+
+
+.praxis-community-reactions {
+  gap: 4px;
+}
+
+.praxis-community-reaction {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: var(--color-surface);
+  gap: 4px;
+  min-width: 38px;
+  justify-content: center;
+}
+
+.praxis-community-reaction .praxis-community-reaction-icon {
+  font-size: 16px;
+  filter: grayscale(0.55);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.praxis-community-reaction:hover:not(:disabled) .praxis-community-reaction-icon,
+.praxis-community-reaction.is-active .praxis-community-reaction-icon {
+  filter: grayscale(0);
+  transform: scale(1.10);
+}
+
+.praxis-community-reaction.is-active {
+  background: rgba(37, 99, 235, 0.10);
+  border-color: #1e40af;
+}
+
+.praxis-community-reaction-count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1e40af;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  margin-left: 1px;
+}
+.praxis-community-reaction.is-active .praxis-community-reaction-count {
+  background: #1e40af;
+  color: #fff;
+}
+
+
+.praxis-community-reply-link {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+.praxis-community-reply-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+
+.praxis-practice-primary.is-danger {
+  background: linear-gradient(180deg, #dc2626, #b91c1c);
+  border-color: #b91c1c;
+  box-shadow: 0 3px 10px rgba(185, 28, 28, 0.25);
+}
+.praxis-practice-primary.is-danger:hover:not(:disabled) {
+  background: linear-gradient(180deg, #ef4444, #dc2626);
+  border-color: #dc2626;
+}
+
+
+
+
+
+.praxis-community-own-note {
+  font-size: 13px;
+  color: #64748b;
+  padding: 12px 16px;
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 163, 184, 0.28);
+  margin: 0 0 4px;
+  line-height: 1.55;
+}
+
+.praxis-community-reply-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.praxis-community-reply-node {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-community-reply-node.depth-1 {
+  margin-left: 36px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(37, 99, 235, 0.12);
+}
+
+.praxis-community-reply-node.depth-2 {
+  margin-left: 36px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(37, 99, 235, 0.12);
+}
+
+.praxis-community-reply-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-community-reply {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: var(--color-surface);
+  transition: border-color 0.15s ease;
+}
+.praxis-community-reply:hover {
+  border-color: rgba(37, 99, 235, 0.28);
+}
+
+.praxis-community-reply-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.praxis-community-reply-action {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s ease;
+}
+.praxis-community-reply-action:hover {
+  background: rgba(37, 99, 235, 0.08);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.praxis-community-reply-action.is-muted {
+  color: #94a3b8;
+  font-weight: 500;
+}
+.praxis-community-reply-action.is-muted:hover {
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.06);
+}
+
+.praxis-community-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.praxis-community-composer.is-compact {
+  margin: 8px 0 4px;
+}
+
+.praxis-community-composer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.praxis-community-post-stat-grey {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+
+
+
+
+.praxis-community-own-note {
+  font-size: 13px;
+  color: #64748b;
+  padding: 12px 16px;
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 163, 184, 0.28);
+  margin: 0 0 4px;
+  line-height: 1.55;
+}
+
+.praxis-community-reply-tree {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.praxis-community-reply-node {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-community-reply-node.depth-1,
+.praxis-community-reply-node.depth-2 {
+  margin-left: 36px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(37, 99, 235, 0.12);
+}
+
+.praxis-community-reply-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.praxis-community-reply {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: var(--color-surface);
+  transition: border-color 0.15s ease;
+}
+.praxis-community-reply:hover {
+  border-color: rgba(37, 99, 235, 0.28);
+}
+
+.praxis-community-reply-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.praxis-community-reply-action {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s ease;
+}
+.praxis-community-reply-action:hover {
+  background: rgba(37, 99, 235, 0.08);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.praxis-community-reply-action.is-muted {
+  color: #94a3b8;
+  font-weight: 500;
+}
+.praxis-community-reply-action.is-muted:hover {
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.06);
+}
+
+.praxis-community-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.praxis-community-composer.is-compact {
+  margin: 8px 0 4px;
+}
+
+.praxis-community-composer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.praxis-community-post-stat-grey {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+  padding: 4px 8px;
+}

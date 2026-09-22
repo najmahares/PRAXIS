@@ -1,0 +1,794 @@
+.praxis-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+.praxis-shell[data-full="true"] {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.praxis-shell-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  background: linear-gradient(
+    180deg,
+    #1e40af 0%,
+    #1e3a8a 45%,
+    #1e3a8a 100%
+  );
+  border-right: 1px solid rgba(15, 23, 42, 0.35);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  overflow-y: auto;
+  z-index: 40;
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: 1px 0 0 rgba(15, 23, 42, 0.08);
+}
+
+.praxis-shell-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.praxis-shell-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 64px;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+}
+
+.praxis-shell-content {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.praxis-shell-content[data-full="true"] {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.praxis-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.praxis-sidebar-item svg {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 120ms ease;
+}
+
+.praxis-sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+.praxis-sidebar-item:hover svg {
+  color: #ffffff;
+}
+
+.praxis-sidebar-item[aria-current="page"] {
+  background: #ffffff;
+  color: #1e3a8a;
+  font-weight: 600;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 20px -8px rgba(0, 0, 0, 0.45);
+}
+
+.praxis-sidebar-item[aria-current="page"]:hover {
+  background: #ffffff;
+  color: #1e3a8a;
+}
+
+.praxis-sidebar-item[aria-current="page"] svg {
+  color: #1e3a8a;
+}
+
+.praxis-sidebar-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55);
+}
+
+.praxis-shell-backdrop {
+  display: none;
+}
+
+.praxis-shell-mobile-menu {
+  display: none;
+}
+
+.praxis-shell-search-input:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .praxis-shell-sidebar {
+    transform: translateX(-100%);
+    transition: transform 220ms ease;
+    width: 260px;
+  }
+
+  .praxis-shell-sidebar[data-open="true"] {
+    transform: translateX(0);
+  }
+
+  .praxis-shell-main {
+    margin-left: 0;
+  }
+
+  .praxis-shell-topbar {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .praxis-shell-content {
+    padding: 24px 16px;
+  }
+
+  .praxis-shell-content[data-full="true"] {
+    padding: 0;
+  }
+
+  .praxis-shell-mobile-menu {
+    display: inline-flex;
+  }
+
+  .praxis-shell-backdrop[data-open="true"] {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 39;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .praxis-shell-sidebar {
+    transition: none;
+  }
+
+  .praxis-sidebar-item {
+    transition: none;
+  }
+}
+
+
+
+
+
+.praxis-jema-launcher {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 60%, #1e3a8a 100%);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  box-shadow:
+    -10px 0 28px -6px rgba(30, 64, 175, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: praxis-jema-breathe 3.2s ease-in-out infinite;
+}
+
+@keyframes praxis-jema-breathe {
+  0%, 100% {
+    box-shadow:
+      -10px 0 28px -6px rgba(30, 64, 175, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+  50% {
+    box-shadow:
+      -14px 0 40px -6px rgba(37, 99, 235, 0.95),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+}
+
+.praxis-jema-launcher:hover {
+  transform: translateY(-50%) translateX(-6px) scale(1.04);
+  box-shadow:
+    -16px 0 44px -6px rgba(37, 99, 235, 1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+}
+
+.praxis-jema-launcher:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: -6px;
+}
+
+.praxis-jema-launcher svg {
+  width: 34px;
+  height: 34px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.35));
+}
+
+@media (max-width: 520px) {
+  .praxis-jema-launcher {
+    top: auto;
+    bottom: 20px;
+    width: 58px;
+    height: 58px;
+  }
+  .praxis-jema-launcher:hover {
+    transform: translateX(-4px) scale(1.04);
+  }
+  .praxis-jema-launcher svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.praxis-jema-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 92vw;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -12px 0 40px rgba(15, 23, 42, 0.12);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.praxis-jema-panel[data-open="true"] {
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.praxis-jema-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, rgba(37, 99, 235, 0.04), transparent),
+    var(--color-surface);
+}
+
+.praxis-jema-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.praxis-jema-head-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.praxis-jema-head-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.praxis-jema-head-sub {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.praxis-jema-close {
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.praxis-jema-close:hover {
+  color: var(--color-text);
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.praxis-jema-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.praxis-jema-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-jema-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-jema-empty {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.praxis-jema-notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.praxis-jema-note {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid #1e40af;
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.praxis-jema-note-fact {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+
+.praxis-jema-note-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.praxis-jema-note-concept {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.praxis-jema-note-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.praxis-jema-note-link:hover { text-decoration: underline; }
+
+.praxis-jema-chat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.praxis-jema-msg {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.praxis-jema-msg.is-user {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--color-text);
+  align-self: flex-end;
+  max-width: 90%;
+}
+
+.praxis-jema-msg.is-jema {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--color-text);
+}
+
+.praxis-jema-typing {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.praxis-jema-error {
+  font-size: 12px;
+  color: #b91c1c;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(185, 28, 28, 0.08);
+  margin: 0;
+}
+
+.praxis-jema-compose {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.praxis-jema-input {
+  flex: 1;
+  resize: none;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.praxis-jema-input:focus {
+  outline: none;
+  border-color: #1e40af;
+}
+
+.praxis-jema-send {
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #3b82f6, #1e40af);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: stretch;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.25), 0 4px 12px rgba(37, 99, 235, 0.20);
+}
+
+.praxis-jema-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+@media (max-width: 520px) {
+  .praxis-jema-panel { width: 100%; max-width: 100%; }
+  .praxis-jema-launcher { top: auto; bottom: 24px; transform: none; }
+  .praxis-jema-launcher:hover { transform: translateX(-3px); }
+}
+
+
+
+
+
+
+.praxis-shell-main {
+  transition: padding-right 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.praxis-shell[data-jema="true"] .praxis-shell-main {
+  padding-right: 380px;
+}
+
+
+.praxis-shell[data-jema="true"] .praxis-topbar,
+.praxis-shell[data-jema="true"] .praxis-shell-content {
+  transition: padding-right 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+@media (max-width: 900px) {
+  .praxis-shell[data-jema="true"] .praxis-shell-main {
+    padding-right: 0;
+  }
+  .praxis-shell[data-jema="true"] .praxis-jema-panel {
+    box-shadow: -12px 0 40px rgba(15, 23, 42, 0.25);
+  }
+  .praxis-shell[data-jema="true"] .praxis-shell-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+
+.praxis-shell-sidebar .praxis-shell-brand,
+.praxis-shell-sidebar [class*="brand"],
+.praxis-shell-sidebar [class*="logo"] {
+  color: #ffffff !important;
+}
+
+.praxis-shell-sidebar [class*="label"],
+.praxis-shell-sidebar [class*="section-title"],
+.praxis-shell-sidebar [class*="kicker"] {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+
+.praxis-shell-sidebar [class*="card"],
+.praxis-shell-sidebar [class*="promo"] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff;
+}
+
+.praxis-shell-sidebar [class*="card"] a,
+.praxis-shell-sidebar [class*="promo"] a {
+  color: #ffffff !important;
+}
+
+
+
+
+
+@media (min-width: 769px) {
+  .praxis-shell-sidebar {
+    top: 12px !important;
+    left: 12px !important;
+    bottom: 12px !important;
+    width: 228px !important;
+    border-radius: 20px !important;
+    background: linear-gradient(
+      180deg,
+      #1e3a8a 0%,
+      #1e40af 55%,
+      #172554 100%
+    ) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow:
+      0 24px 60px -28px rgba(15, 23, 42, 0.55),
+      0 1px 0 rgba(255, 255, 255, 0.08) inset !important;
+    padding: 22px 12px !important;
+  }
+
+  .praxis-shell-main {
+    margin-left: 252px !important;
+  }
+}
+
+
+.praxis-shell-sidebar > *:first-child,
+.praxis-shell-sidebar > a:first-child,
+.praxis-shell-sidebar > div:first-child,
+.praxis-shell-sidebar > header:first-child {
+  color: #ffffff !important;
+}
+
+.praxis-shell-sidebar [class*="brand" i],
+.praxis-shell-sidebar [class*="logo" i],
+.praxis-shell-sidebar h1,
+.praxis-shell-sidebar h2 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em !important;
+}
+
+
+.praxis-sidebar-item {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.praxis-sidebar-item svg {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.praxis-sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+
+.praxis-sidebar-item:hover svg {
+  color: #ffffff !important;
+}
+
+
+.praxis-sidebar-item[aria-current="page"] {
+  background: #ffffff !important;
+  color: #1e3a8a !important;
+  font-weight: 700 !important;
+}
+
+.praxis-sidebar-item[aria-current="page"] svg {
+  color: #1e3a8a !important;
+}
+
+
+.praxis-shell-sidebar [class*="group" i],
+.praxis-shell-sidebar [class*="section" i],
+.praxis-shell-sidebar [class*="kicker" i],
+.praxis-shell-sidebar [class*="label" i] {
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+
+.praxis-shell-sidebar [class*="promo" i],
+.praxis-shell-sidebar [class*="card" i],
+.praxis-shell-sidebar [class*="upgrade" i],
+.praxis-shell-sidebar [class*="unlock" i] {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+}
+
+.praxis-shell-sidebar [class*="promo" i] a,
+.praxis-shell-sidebar [class*="card" i] a,
+.praxis-shell-sidebar [class*="upgrade" i] a,
+.praxis-shell-sidebar [class*="unlock" i] a {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+
+
+.praxis-skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 14px;
+  background: #1e3a8a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+  z-index: 9999;
+  transform: translateY(-120%);
+  transition: transform 0.18s ease;
+}
+
+.praxis-skip-link:focus,
+.praxis-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #ffffff;
+  outline-offset: -4px;
+}
+
+
+
+.praxis-jema-note-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.praxis-jema-note {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid #2563eb;
+  border-radius: 8px;
+  background: var(--color-surface);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.praxis-jema-note:hover {
+  background: #eff6ff;
+  border-left-color: #1e40af;
+  transform: translateX(2px);
+}
+
+.praxis-jema-note-cta {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.praxis-jema-note-lesson {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.praxis-jema-note-lesson:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+
+
+[data-theme="dark"] .praxis-shell-sidebar {
+  background: linear-gradient(
+    180deg,
+    #0f172a 0%,
+    #1e293b 55%,
+    #020617 100%
+  ) !important;
+  border: 1px solid rgba(148, 163, 184, 0.15) !important;
+  box-shadow:
+    0 24px 60px -28px rgba(0, 0, 0, 0.75),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset !important;
+}
+
+[data-theme="dark"] .praxis-sidebar-item {
+  color: rgba(226, 232, 240, 0.85) !important;
+}
+
+[data-theme="dark"] .praxis-sidebar-item svg {
+  color: rgba(148, 163, 184, 0.9) !important;
+}
+
+[data-theme="dark"] .praxis-sidebar-item:hover {
+  background: rgba(148, 163, 184, 0.10) !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .praxis-sidebar-item[aria-current="page"] {
+  background: linear-gradient(180deg, #3b82f6, #2563eb) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .praxis-sidebar-item[aria-current="page"] svg {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .praxis-shell-sidebar h1,
+[data-theme="dark"] .praxis-shell-sidebar h2,
+[data-theme="dark"] .praxis-shell-sidebar [class*="brand" i],
+[data-theme="dark"] .praxis-shell-sidebar [class*="logo" i] {
+  color: #ffffff !important;
+}
