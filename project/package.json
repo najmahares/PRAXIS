@@ -19,7 +19,8 @@
     "test:e2e:learning": "playwright test tests/e2e/learning.spec.ts",
     "test:e2e:portfolio": "playwright test tests/e2e/portfolio.spec.ts",
     "test:e2e:report": "playwright show-report",
-    "test:e2e:cleanup": "node scripts/cleanup-e2e-users.mjs"
+    "test:e2e:cleanup": "node scripts/cleanup-e2e-users.mjs",
+    "seed:test": "node scripts/seed-test-user.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.6",

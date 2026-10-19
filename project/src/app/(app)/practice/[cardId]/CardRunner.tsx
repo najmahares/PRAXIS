@@ -13,29 +13,26 @@ type Existing = {
   choiceId: string | null;
 } | null;
 
-
 function stripMarkdown(input: string): string {
   let out = input;
-  
+
   out = out.replace(/```[\s\S]*?```/g, (m) => m.replace(/```/g, ""));
-  
+
   out = out.replace(/`([^`]+)`/g, "$1");
-  
+
   out = out.replace(/\*\*([^*]+)\*\*/g, "$1");
   out = out.replace(/__([^_]+)__/g, "$1");
   out = out.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, "$1$2");
   out = out.replace(/(^|[^_])_([^_\n]+)_(?!_)/g, "$1$2");
-  
+
   out = out.replace(/^#{1,6}\s+/gm, "");
-  
+
   out = out.replace(/^>\s?/gm, "");
-  
+
   out = out.replace(/^\s*[-*+]\s+/gm, "• ");
-  
-  
-  
+
   out = out.replace(/\n{3,}/g, "\n\n");
-  
+
   out = out
     .replace(/(\w)[ \t]*\u2014[ \t]*(\w)/g, "$1, $2")
     .replace(/[ \t]+\u2014[ \t]+/g, ", ")
@@ -57,26 +54,34 @@ export default function CardRunner({
   nextCardTitle: string | null;
 }) {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(
-    existing?.choiceId ?? null
+    existing?.choiceId ?? null,
   );
   const [response, setResponse] = useState(existing?.response ?? "");
   const [submitted, setSubmitted] = useState(Boolean(existing));
   const [passed, setPassed] = useState(Boolean(existing?.passed));
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [missionResult, setMissionResult] = useState<{ passed: boolean; detail: string } | null>(
-    null
-  );
+  const [missionResult, setMissionResult] = useState<{
+    passed: boolean;
+    detail: string;
+  } | null>(null);
   const [jemaFeedback, setJemaFeedback] = useState("");
   const [jemaStreaming, setJemaStreaming] = useState(false);
   const [jemaAnswer, setJemaAnswer] = useState("");
   const [jemaAnswerStreaming, setJemaAnswerStreaming] = useState(false);
 
-  async function streamMentor(message: string, onChunk: (acc: string) => void): Promise<void> {
+  async function streamMentor(
+    message: string,
+    onChunk: (acc: string) => void,
+  ): Promise<void> {
     const res = await fetch("/api/mentor", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, history: [], context: buildMentorContext() }),
+      body: JSON.stringify({
+        message,
+        history: [],
+        context: buildMentorContext(),
+      }),
     });
     if (!res.ok || !res.body) throw new Error("unavailable");
     const reader = res.body.getReader();
@@ -97,10 +102,18 @@ export default function CardRunner({
     const wrong = card.choices?.find((c) => c.id === selectedChoice);
     const message =
       "A learner just got a practice scenario wrong. Explain why, in detail. " +
-      "Scenario: " + card.brief + " " +
-      "Question: " + card.prompt + " " +
-      "They picked: \"" + (wrong?.label ?? "") + "\" " +
-      "The strongest answer was: \"" + (best?.label ?? "") + "\" " +
+      "Scenario: " +
+      card.brief +
+      " " +
+      "Question: " +
+      card.prompt +
+      " " +
+      'They picked: "' +
+      (wrong?.label ?? "") +
+      '" ' +
+      'The strongest answer was: "' +
+      (best?.label ?? "") +
+      '" ' +
       "Write 3 short paragraphs: (1) why their choice was tempting but weaker, " +
       "(2) why the strongest answer is strongest, (3) one rule they can carry forward. " +
       "Plain prose only. No markdown. No asterisks. No bold. No headers. No numbered lists. No bullet points. No backticks. Just sentences. Under 200 words.";
@@ -118,9 +131,15 @@ export default function CardRunner({
     setJemaAnswerStreaming(true);
     const message =
       "A learner's mission is not yet complete. Explain how to satisfy it. " +
-      "Mission: " + card.brief + " " +
-      "Goal: " + card.prompt + " " +
-      "Current state: " + detail + " " +
+      "Mission: " +
+      card.brief +
+      " " +
+      "Goal: " +
+      card.prompt +
+      " " +
+      "Current state: " +
+      detail +
+      " " +
       "Write 2 short paragraphs: (1) what is missing and why, " +
       "(2) exactly what portfolio action would change that. " +
       "Plain prose only. No markdown. No asterisks. No bold. No headers. No numbered lists. No bullet points. No backticks. Just sentences. Under 150 words.";
@@ -146,7 +165,7 @@ export default function CardRunner({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cardId: card.id, choiceId }),
       }).catch(() => {});
-    } catch {  }
+    } catch {}
     if (!isBest) void generateJemaAnswer();
   }
 
@@ -171,7 +190,7 @@ export default function CardRunner({
       } else {
         setSubmitted(true);
       }
-      
+
       void getJemaFeedback();
     } catch {
       setSubmitted(true);
@@ -188,12 +207,16 @@ export default function CardRunner({
     try {
       const res = await fetch(
         "/api/practice/cards/verify?cardId=" + encodeURIComponent(card.id),
-        { cache: "no-store" }
+        { cache: "no-store" },
       );
       const data = await res.json();
       if (data.ok) {
-        setMissionResult({ passed: Boolean(data.passed), detail: String(data.detail ?? "") });
-        if (!data.passed) void generateMissionGuidance(String(data.detail ?? ""));
+        setMissionResult({
+          passed: Boolean(data.passed),
+          detail: String(data.detail ?? ""),
+        });
+        if (!data.passed)
+          void generateMissionGuidance(String(data.detail ?? ""));
       } else {
         setError(data.error ?? "Could not check.");
       }
@@ -226,12 +249,18 @@ export default function CardRunner({
     if (jemaStreaming || jemaFeedback) return;
     setJemaFeedback("");
     setJemaStreaming(true);
-    const frameworkText = (card.framework ?? []).map((f, i) => i + 1 + ". " + f).join(" ");
+    const frameworkText = (card.framework ?? [])
+      .map((f, i) => i + 1 + ". " + f)
+      .join(" ");
     const message =
-      "I just completed a practice drill. The brief was: " + card.brief +
-      " The question was: " + card.prompt +
-      " My answer was: " + response +
-      " Please give specific coaching feedback. Did I address: " + frameworkText +
+      "I just completed a practice drill. The brief was: " +
+      card.brief +
+      " The question was: " +
+      card.prompt +
+      " My answer was: " +
+      response +
+      " Please give specific coaching feedback. Did I address: " +
+      frameworkText +
       " Point out what was strong, what was missing, and one thing to look at next. " +
       "Write 2 to 3 short paragraphs of plain prose. " +
       "No markdown. No asterisks. No bold. No italics. No headers. No numbered lists. No bullet points. No backticks. " +
@@ -248,11 +277,14 @@ export default function CardRunner({
   const steps =
     card.steps && card.steps.length > 0
       ? card.steps
-      : MISSION_STEPS[card.id] ?? deriveSteps(card.verify);
+      : (MISSION_STEPS[card.id] ?? deriveSteps(card.verify));
 
   return (
     <div className="praxis-card-run">
-      <Link href={"/practice/group/" + card.level + "-" + card.type} className="praxis-practice-back">
+      <Link
+        href={"/practice/group/" + card.level + "-" + card.type}
+        className="praxis-practice-back"
+      >
         <span aria-hidden="true">{"\u2190"}</span>
         <span>Back to set</span>
       </Link>
@@ -263,7 +295,9 @@ export default function CardRunner({
         </span>
         <h1 className="praxis-card-run-title">{card.title}</h1>
         {card.linkedLessonLabel ? (
-          <p className="praxis-card-run-lesson">From {card.linkedLessonLabel}</p>
+          <p className="praxis-card-run-lesson">
+            From {card.linkedLessonLabel}
+          </p>
         ) : null}
       </header>
 
@@ -291,7 +325,9 @@ export default function CardRunner({
                     (showAsBest ? " is-best" : "")
                   }
                 >
-                  <span className="praxis-card-run-choice-label">{c.label}</span>
+                  <span className="praxis-card-run-choice-label">
+                    {c.label}
+                  </span>
                 </button>
               );
             })}
@@ -302,7 +338,9 @@ export default function CardRunner({
           <div className="praxis-card-run-drill">
             {submitted ? (
               <div className="praxis-card-run-answer">
-                <span className="praxis-card-run-answer-label">Your answer</span>
+                <span className="praxis-card-run-answer-label">
+                  Your answer
+                </span>
                 <p>{response}</p>
               </div>
             ) : (
@@ -328,7 +366,9 @@ export default function CardRunner({
             {submitted ? (
               <div className="praxis-card-run-jema">
                 <div className="praxis-card-run-jema-head">
-                  <span className="praxis-card-run-jema-title">Jema&apos;s feedback</span>
+                  <span className="praxis-card-run-jema-title">
+                    Jema&apos;s feedback
+                  </span>
                 </div>
                 {jemaFeedback ? (
                   <p className="praxis-card-run-jema-body">{jemaFeedback}</p>
@@ -350,7 +390,9 @@ export default function CardRunner({
           <div className="praxis-card-run-mission">
             {steps.length > 0 ? (
               <div className="praxis-card-run-steps">
-                <span className="praxis-card-run-steps-title">How to complete this</span>
+                <span className="praxis-card-run-steps-title">
+                  How to complete this
+                </span>
                 <ol className="praxis-card-run-steps-list">
                   {steps.map((s, i) => (
                     <li key={i} className="praxis-card-run-steps-item">
@@ -362,19 +404,34 @@ export default function CardRunner({
               </div>
             ) : null}
             {missionResult ? (
-              <div className={"praxis-card-run-mission-result " + (missionResult.passed ? "is-pass" : "is-fail")}>
+              <div
+                className={
+                  "praxis-card-run-mission-result " +
+                  (missionResult.passed ? "is-pass" : "is-fail")
+                }
+              >
                 <span className="praxis-card-run-mission-result-title">
                   {missionResult.passed ? "Mission complete" : "Not yet"}
                 </span>
                 <p>{missionResult.detail}</p>
                 {missionResult.passed && !submitted ? (
-                  <button type="button" className="praxis-practice-primary" onClick={() => submitMission(true)} disabled={busy}>
+                  <button
+                    type="button"
+                    className="praxis-practice-primary"
+                    onClick={() => submitMission(true)}
+                    disabled={busy}
+                  >
                     Mark complete
                   </button>
                 ) : null}
               </div>
             ) : (
-              <button type="button" className="praxis-practice-primary" onClick={checkMission} disabled={busy}>
+              <button
+                type="button"
+                className="praxis-practice-primary"
+                onClick={checkMission}
+                disabled={busy}
+              >
                 {busy ? "Checking…" : "Check my portfolio"}
               </button>
             )}
@@ -386,7 +443,9 @@ export default function CardRunner({
         {jemaAnswer || jemaAnswerStreaming ? (
           <div className="praxis-card-run-jema-answer">
             <div className="praxis-card-run-jema-answer-head">
-              <span className="praxis-card-run-jema-answer-title">Jema explains</span>
+              <span className="praxis-card-run-jema-answer-title">
+                Jema explains
+              </span>
             </div>
             {jemaAnswer ? (
               <p className="praxis-card-run-jema-answer-body">{jemaAnswer}</p>
@@ -410,17 +469,30 @@ export default function CardRunner({
               <span className="praxis-card-run-continue-title">
                 {nextCardTitle ?? "Next card"}
               </span>
-              <span className="praxis-card-run-continue-arrow" aria-hidden="true">{"\u2192"}</span>
+              <span
+                className="praxis-card-run-continue-arrow"
+                aria-hidden="true"
+              >
+                {"\u2192"}
+              </span>
             </Link>
           ) : (
             <div className="praxis-card-run-continue-end">
               <p>You have finished this set.</p>
-              <Link
-                href={"/practice/group/" + card.level + "-" + card.type}
-                className="praxis-practice-primary"
-              >
-                Back to set
-              </Link>
+              <div className="praxis-card-run-continue-actions">
+                <Link
+                  href={"/learning/" + card.level + "/complete"}
+                  className="praxis-practice-primary"
+                >
+                  Finish Level {card.level}
+                </Link>
+                <Link
+                  href={"/practice/group/" + card.level + "-" + card.type}
+                  className="praxis-card-run-continue-secondary"
+                >
+                  Back to set
+                </Link>
+              </div>
             </div>
           )}
         </div>
@@ -428,11 +500,17 @@ export default function CardRunner({
 
       <footer className="praxis-card-run-foot">
         {card.linkedLessonId ? (
-          <Link href={"/learning/lesson/" + card.linkedLessonId.replace(".", "-")} className="praxis-card-run-foot-link">
+          <Link
+            href={"/learning/lesson/" + card.linkedLessonId.replace(".", "-")}
+            className="praxis-card-run-foot-link"
+          >
             Review {card.linkedLessonLabel}
           </Link>
         ) : null}
-        <Link href={"/practice/group/" + card.level + "-" + card.type} className="praxis-card-run-foot-link is-muted">
+        <Link
+          href={"/practice/group/" + card.level + "-" + card.type}
+          className="praxis-card-run-foot-link is-muted"
+        >
           Back to set
         </Link>
         <Link href="/practice" className="praxis-card-run-foot-link is-muted">

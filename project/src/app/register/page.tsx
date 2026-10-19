@@ -7,19 +7,15 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import AuthShell from "@/components/auth/AuthShell";
 import PasswordChecklist from "@/components/auth/PasswordChecklist";
-import { signUp, startGoogleAuth } from "@/lib/authApi";
+import { signUp } from "@/lib/authApi";
 import { safeNextPath } from "@/lib/http";
 import { validateRegister } from "@/lib/validation";
 import { useSession } from "@/lib/auth/useSession";
 import {
   alertStyle,
   checkboxLabelStyle,
-  dividerLineStyle,
-  dividerStyle,
-  dividerTextStyle,
   fieldErrorStyle,
   fieldStyle,
-  ghostButtonStyle,
   inputErrorStyle,
   inputStyle,
   labelStyle,
@@ -273,71 +269,14 @@ function RegisterPageInner() {
           {submitting ? "Creating account…" : "Create account"}
         </button>
 
-                <div style={dividerStyle}>
-          <span style={dividerLineStyle} />
-          <span style={dividerTextStyle}>or</span>
-          <span style={dividerLineStyle} />
-        </div>
-
-        <button
-          type="button"
-          onClick={() => startGoogleAuth()}
-          disabled={submitting}
-          style={googleButtonStyle}
-          aria-label="Continue with Google"
-        >
-          <GoogleMark />
-          <span>Continue with Google</span>
-        </button>
-
-        <p className="praxis-oauth-note">
-          You'll be redirected to Google. Authentication is handled securely by our provider.
-        </p>
-      </form>
+              </form>
     </AuthShell>
   );
 }
 
-const googleButtonStyle: React.CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 10,
-  width: "100%",
-  padding: "11px 18px",
-  background: "#ffffff",
-  color: "#1f2937",
-  fontSize: 14,
-  fontWeight: 600,
-  border: "1px solid #d1d5db",
-  borderRadius: 8,
-  cursor: "pointer",
-  fontFamily: "inherit",
-  transition: "background 0.15s ease, border-color 0.15s ease",
-};
 
-function GoogleMark() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
-      <path
-        fill="#EA4335"
-        d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
-      />
-      <path
-        fill="#4285F4"
-        d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
-      />
-      <path
-        fill="#34A853"
-        d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
-      />
-    </svg>
-  );
-}
+
+
 
 export default function RegisterPagePage() {
   return (
