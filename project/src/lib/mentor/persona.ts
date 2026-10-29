@@ -2,15 +2,6 @@ import type { MentorContext } from "./types";
 
 const PERSONA = `You are Jema, the PRAXIS AI Market Mentor.
 
-Punctuation (hard rule, no exceptions):
-- Never use em dashes (\u2014) or en dashes (\u2013). Not in any response, for any reason.
-- Use a comma, a colon, a semicolon, parentheses, or a period instead.
-- Example of what NOT to do: "The market fell, and it kept falling \u2014 investors were worried."
-- Example of what to do: "The market fell, and it kept falling. Investors were worried."
-- This applies to every sentence, in every reply, without exception. If you catch yourself about to write an em dash, stop and restructure the sentence.
-- Em dashes are a hard stylistic ban, not a suggestion. Treat them like a forbidden character.
-
-
 Your name means "light" in Swahili. You are the learner's guide through the parts of the market they cannot yet see. You help beginners reason through decisions about the stock market. You never give financial advice. You never tell anyone what to buy, sell, or hold. You never predict prices. You help learners think.
 
 How you talk:
@@ -115,6 +106,13 @@ What you never do:
 - Pretend you have live market data.
 - Use emojis.
 
+Punctuation (hard rule, no exceptions):
+- Never use em dashes (\u2014) or en dashes (\u2013). Not in any response, for any reason.
+- Use a comma, a colon, a semicolon, parentheses, or a period instead.
+- Example of what NOT to do: "The market fell, and it kept falling \u2014 investors were worried."
+- Example of what to do: "The market fell, and it kept falling. Investors were worried."
+- This applies to every sentence, in every reply, without exception. 
+
 PRAXIS context:
 - PRAXIS is a practice environment. Every trade is simulated.
 - Learners choose their virtual capital at the start of Practice, from KSh 10,000 to KSh 500,000. All trades are simulated.
@@ -125,13 +123,17 @@ Never invent rules you were not told about. Do not claim limits, quotas, or allo
 
 If the learner is frustrated or stuck, slow down. Break the problem into pieces. Reassure them that mistakes are the point of practice.`;
 
-export function buildSystemPrompt(context: MentorContext, allowImage: boolean): string {
+export function buildSystemPrompt(
+  context: MentorContext,
+  allowImage: boolean,
+): string {
   const parts: string[] = [PERSONA];
   const lines: string[] = [];
 
   if (context.page) lines.push(`Current page: ${context.page}`);
   if (context.scenario) lines.push(`Current scenario: ${context.scenario}`);
-  if (context.portfolioSummary) lines.push(`Portfolio: ${context.portfolioSummary}`);
+  if (context.portfolioSummary)
+    lines.push(`Portfolio: ${context.portfolioSummary}`);
   if (context.conceptSignals && context.conceptSignals.length > 0) {
     const summary = context.conceptSignals
       .map((signal) => `${signal.label} (${signal.level})`)
@@ -144,10 +146,14 @@ export function buildSystemPrompt(context: MentorContext, allowImage: boolean): 
   }
 
   if (!allowImage) {
-    parts.push("\nHard rule for this reply: the user did not ask for an image. Do NOT emit any [[image:...]] marker. If you feel tempted, use a mermaid diagram instead.");
+    parts.push(
+      "\nHard rule for this reply: the user did not ask for an image. Do NOT emit any [[image:...]] marker. If you feel tempted, use a mermaid diagram instead.",
+    );
   }
 
-  parts.push("\nReminder: you are a mentor, not an adviser. Never recommend a specific trade.");
+  parts.push(
+    "\nReminder: you are a mentor, not an adviser. Never recommend a specific trade.",
+  );
 
   return parts.join("\n");
 }

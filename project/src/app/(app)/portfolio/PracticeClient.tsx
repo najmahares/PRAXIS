@@ -9,16 +9,22 @@ import { registerPracticeSummary } from "@/lib/mentor/context";
 import "./practice.css";
 
 const PALETTE = [
-  "#2563eb", "#0d9488", "#7c3aed", "#d97706",
-  "#dc2626", "#15803d", "#0ea5e9", "#a855f7",
+  "#2563eb",
+  "#0d9488",
+  "#7c3aed",
+  "#d97706",
+  "#dc2626",
+  "#15803d",
+  "#0ea5e9",
+  "#a855f7",
 ];
 
 type StatTone = "blue" | "green" | "amber" | "purple";
 
 const TONES: Record<StatTone, { accent: string; soft: string }> = {
-  blue:   { accent: "#2563eb", soft: "rgba(37, 99, 235, 0.10)" },
-  green:  { accent: "#15803d", soft: "rgba(21, 128, 61, 0.10)" },
-  amber:  { accent: "#d97706", soft: "rgba(217, 119, 6, 0.10)" },
+  blue: { accent: "#2563eb", soft: "rgba(37, 99, 235, 0.10)" },
+  green: { accent: "#15803d", soft: "rgba(21, 128, 61, 0.10)" },
+  amber: { accent: "#d97706", soft: "rgba(217, 119, 6, 0.10)" },
   purple: { accent: "#7c3aed", soft: "rgba(124, 58, 237, 0.10)" },
 };
 
@@ -177,11 +183,17 @@ export default function PracticeClient({
           <h1 className="praxis-pf-title">Portfolio</h1>
         </header>
         <div className="praxis-pf-empty">
-          <h2 className="praxis-pf-empty-title">Set up your practice portfolio</h2>
+          <h2 className="praxis-pf-empty-title">
+            Set up your practice portfolio
+          </h2>
           <p className="praxis-pf-empty-body">
-            Choose your starting capital and begin. Every trade is simulated. No real money involved.
+            Choose your starting capital and begin. Every trade is simulated. No
+            real money involved.
           </p>
-          <Link href="/portfolio/setup" className="praxis-pf-btn praxis-pf-btn--primary">
+          <Link
+            href="/portfolio/setup"
+            className="praxis-pf-btn praxis-pf-btn--primary"
+          >
             Choose starting capital
           </Link>
         </div>
@@ -190,8 +202,14 @@ export default function PracticeClient({
   }
 
   const {
-    portfolio, holdings, trades,
-    totalValue, totalPnl, totalPnlPct, cashPct, daysOld,
+    portfolio,
+    holdings,
+    trades,
+    totalValue,
+    totalPnl,
+    totalPnlPct,
+    cashPct,
+    daysOld,
   } = view;
   const up = totalPnl >= 0;
   const vsNasi = nasiChangePct !== null ? totalPnlPct - nasiChangePct : null;
@@ -207,17 +225,51 @@ export default function PracticeClient({
             <span className="praxis-pf-day-chip">Day {daysOld}</span>
           </div>
           <nav className="praxis-pf-nav" aria-label="Portfolio sections">
-            <Link href="/portfolio" className={"praxis-pf-nav-link" + (pathname === "/portfolio" ? " is-active" : "")}>Overview</Link>
-            <Link href="/portfolio/journal" className={"praxis-pf-nav-link" + (pathname.startsWith("/portfolio/journal") ? " is-active" : "")}>Journal</Link>
-            <Link href="/portfolio/reset" className={"praxis-pf-nav-link" + (pathname.startsWith("/portfolio/reset") ? " is-active" : "")}>Reset</Link>
+            <Link
+              href="/portfolio"
+              className={
+                "praxis-pf-nav-link" +
+                (pathname === "/portfolio" ? " is-active" : "")
+              }
+            >
+              Overview
+            </Link>
+            <Link
+              href="/portfolio/journal"
+              className={
+                "praxis-pf-nav-link" +
+                (pathname.startsWith("/portfolio/journal") ? " is-active" : "")
+              }
+            >
+              Journal
+            </Link>
+            <Link
+              href="/portfolio/setup"
+              className={
+                "praxis-pf-nav-link" +
+                (pathname.startsWith("/portfolio/setup") ? " is-active" : "")
+              }
+            >
+              Setup
+            </Link>
           </nav>
         </div>
         <div className="praxis-pf-header-right">
-          <button type="button" onClick={refresh} disabled={busy} className="praxis-pf-btn praxis-pf-btn--ghost">
+          <button
+            type="button"
+            onClick={refresh}
+            disabled={busy}
+            className="praxis-pf-btn praxis-pf-btn--ghost"
+          >
             {busy ? "Refreshing..." : "Refresh"}
           </button>
-          <Link href="/portfolio/trade" className="praxis-pf-btn praxis-pf-btn--primary">
-            <span className="praxis-pf-btn-plus" aria-hidden="true">+</span>
+          <Link
+            href="/portfolio/trade"
+            className="praxis-pf-btn praxis-pf-btn--primary"
+          >
+            <span className="praxis-pf-btn-plus" aria-hidden="true">
+              +
+            </span>
             New trade
           </Link>
         </div>
@@ -253,16 +305,32 @@ export default function PracticeClient({
       ) : null}
 
       <section className="praxis-pf-stats" aria-label="Portfolio summary">
-        <StatCard tone="blue" label="Total value" value={formatKsh(totalValue)}
-          sub={formatPct(totalPnlPct) + " all time"} subTone={up ? "up" : "down"} />
-        <StatCard tone={up ? "green" : "amber"} label="Total return"
+        <StatCard
+          tone="blue"
+          label="Total value"
+          value={formatKsh(totalValue)}
+          sub={formatPct(totalPnlPct) + " all time"}
+          subTone={up ? "up" : "down"}
+        />
+        <StatCard
+          tone={up ? "green" : "amber"}
+          label="Total return"
           value={(up ? "+" : "\u2212") + formatKsh(Math.abs(totalPnl))}
           valueTone={up ? "up" : "down"}
-          sub={"Since " + formatKsh(portfolio.starting_capital) + " start"} />
-        <StatCard tone="purple" label="Cash balance" value={formatKsh(portfolio.cash)}
-          sub={cashPct.toFixed(1) + "% of portfolio"} />
-        <StatCard tone="blue" label="Positions" value={String(holdings.length)}
-          sub={trades.length + (trades.length === 1 ? " trade" : " trades")} />
+          sub={"Since " + formatKsh(portfolio.starting_capital) + " start"}
+        />
+        <StatCard
+          tone="purple"
+          label="Cash balance"
+          value={formatKsh(portfolio.cash)}
+          sub={cashPct.toFixed(1) + "% of portfolio"}
+        />
+        <StatCard
+          tone="blue"
+          label="Positions"
+          value={String(holdings.length)}
+          sub={trades.length + (trades.length === 1 ? " trade" : " trades")}
+        />
       </section>
 
       {nasiChangePct !== null ? (
@@ -270,20 +338,36 @@ export default function PracticeClient({
           <div className="praxis-pf-benchmark-row">
             <div className="praxis-pf-benchmark-col">
               <span className="praxis-pf-benchmark-label">Your portfolio</span>
-              <span className={"praxis-pf-benchmark-value " + (up ? "is-up" : "is-down")}>
+              <span
+                className={
+                  "praxis-pf-benchmark-value " + (up ? "is-up" : "is-down")
+                }
+              >
                 {formatPct(totalPnlPct)}
               </span>
             </div>
             <div className="praxis-pf-benchmark-col">
               <span className="praxis-pf-benchmark-label">NASI (YTD)</span>
-              <span className={"praxis-pf-benchmark-value " + (nasiChangePct >= 0 ? "is-up" : "is-down")}>
+              <span
+                className={
+                  "praxis-pf-benchmark-value " +
+                  (nasiChangePct >= 0 ? "is-up" : "is-down")
+                }
+              >
                 {formatPct(nasiChangePct)}
               </span>
             </div>
             <div className="praxis-pf-benchmark-col praxis-pf-benchmark-col--wide">
               <span className="praxis-pf-benchmark-label">Difference</span>
-              <span className={"praxis-pf-benchmark-value " + (beatMarket ? "is-up" : "is-down")}>
-                {(vsNasi !== null && vsNasi >= 0 ? "+" : "") + (vsNasi?.toFixed(2) ?? "0") + "%"}
+              <span
+                className={
+                  "praxis-pf-benchmark-value " +
+                  (beatMarket ? "is-up" : "is-down")
+                }
+              >
+                {(vsNasi !== null && vsNasi >= 0 ? "+" : "") +
+                  (vsNasi?.toFixed(2) ?? "0") +
+                  "%"}
               </span>
               <span className="praxis-pf-benchmark-note">
                 {beatMarket
@@ -300,14 +384,20 @@ export default function PracticeClient({
           <div className="praxis-pf-chart-head-left">
             <span className="praxis-pf-chart-title">Value</span>
             <span className="praxis-pf-chart-sub">
-              {"Since start \u00B7 "}{daysOld} {daysOld === 1 ? "day" : "days"}
+              {"Since start \u00B7 "}
+              {daysOld} {daysOld === 1 ? "day" : "days"}
             </span>
           </div>
-          <span className={"praxis-pf-chart-value " + (up ? "is-up" : "is-down")}>
+          <span
+            className={"praxis-pf-chart-value " + (up ? "is-up" : "is-down")}
+          >
             {formatKsh(totalValue)}
           </span>
         </div>
-        <TrajectoryLine startingValue={portfolio.starting_capital} currentValue={totalValue} />
+        <TrajectoryLine
+          startingValue={portfolio.starting_capital}
+          currentValue={totalValue}
+        />
         <p className="praxis-pf-chart-foot">
           Chart refines as the portfolio ages. From starting capital to today.
         </p>
@@ -324,16 +414,30 @@ export default function PracticeClient({
             <ul className="praxis-pf-holdings-list">
               {holdings.map((h) => (
                 <li key={h.ticker}>
-                  <Link href={"/portfolio/holding/" + h.ticker} className="praxis-pf-holding-row">
+                  <Link
+                    href={"/portfolio/holding/" + h.ticker}
+                    className="praxis-pf-holding-row"
+                  >
                     <div className="praxis-pf-holding-left">
                       <span className="praxis-pf-holding-sym">{h.ticker}</span>
-                      <span className="praxis-pf-holding-name">{h.sector ?? h.name ?? "\u2014"}</span>
+                      <span className="praxis-pf-holding-name">
+                        {h.sector ?? h.name ?? "\u2014"}
+                      </span>
                     </div>
                     <span className="praxis-pf-holding-val">
-                      {h.currentValue === null ? "\u2014" : formatKsh(h.currentValue)}
+                      {h.currentValue === null
+                        ? "\u2014"
+                        : formatKsh(h.currentValue)}
                     </span>
-                    <span className={"praxis-pf-holding-pct " + ((h.unrealizedPnl ?? 0) >= 0 ? "is-up" : "is-down")}>
-                      {h.unrealizedPnlPct === null ? "\u2014" : formatPct(h.unrealizedPnlPct)}
+                    <span
+                      className={
+                        "praxis-pf-holding-pct " +
+                        ((h.unrealizedPnl ?? 0) >= 0 ? "is-up" : "is-down")
+                      }
+                    >
+                      {h.unrealizedPnlPct === null
+                        ? "\u2014"
+                        : formatPct(h.unrealizedPnlPct)}
                     </span>
                   </Link>
                 </li>
@@ -349,36 +453,75 @@ export default function PracticeClient({
       </div>
 
       <section className="praxis-pf-summary" aria-label="Summary metrics">
-        <SummaryCell tone="blue" label="Invested" value={formatKsh(view.totalInvested)} />
-        <SummaryCell tone={up ? "green" : "amber"} label="Total return"
+        <SummaryCell
+          tone="blue"
+          label="Invested"
+          value={formatKsh(view.totalInvested)}
+        />
+        <SummaryCell
+          tone={up ? "green" : "amber"}
+          label="Total return"
           value={(up ? "+" : "\u2212") + formatKsh(Math.abs(totalPnl))}
-          valueTone={up ? "up" : "down"} />
-        <SummaryCell tone={up ? "green" : "amber"} label="Return %"
-          value={formatPct(totalPnlPct)} valueTone={up ? "up" : "down"} />
-        <SummaryCell tone="purple" label="Starting capital" value={formatKsh(portfolio.starting_capital)} />
+          valueTone={up ? "up" : "down"}
+        />
+        <SummaryCell
+          tone={up ? "green" : "amber"}
+          label="Return %"
+          value={formatPct(totalPnlPct)}
+          valueTone={up ? "up" : "down"}
+        />
+        <SummaryCell
+          tone="purple"
+          label="Starting capital"
+          value={formatKsh(portfolio.starting_capital)}
+        />
       </section>
     </div>
   );
 }
 
 function StatCard({
-  tone, label, value, valueTone, sub, subTone,
+  tone,
+  label,
+  value,
+  valueTone,
+  sub,
+  subTone,
 }: {
-  tone: StatTone; label: string; value: string;
-  valueTone?: "up" | "down"; sub?: string; subTone?: "up" | "down";
+  tone: StatTone;
+  label: string;
+  value: string;
+  valueTone?: "up" | "down";
+  sub?: string;
+  subTone?: "up" | "down";
 }) {
   const t = TONES[tone];
   return (
-    <div className="praxis-pf-stat" style={{
-      ["--accent" as never]: t.accent,
-      ["--soft" as never]: t.soft,
-    } as React.CSSProperties}>
+    <div
+      className="praxis-pf-stat"
+      style={
+        {
+          ["--accent" as never]: t.accent,
+          ["--soft" as never]: t.soft,
+        } as React.CSSProperties
+      }
+    >
       <span className="praxis-pf-stat-label">{label}</span>
-      <span className={"praxis-pf-stat-value " + (valueTone === "up" ? "is-up" : valueTone === "down" ? "is-down" : "")}>
+      <span
+        className={
+          "praxis-pf-stat-value " +
+          (valueTone === "up" ? "is-up" : valueTone === "down" ? "is-down" : "")
+        }
+      >
         {value}
       </span>
       {sub ? (
-        <span className={"praxis-pf-stat-sub " + (subTone === "up" ? "is-up" : subTone === "down" ? "is-down" : "")}>
+        <span
+          className={
+            "praxis-pf-stat-sub " +
+            (subTone === "up" ? "is-up" : subTone === "down" ? "is-down" : "")
+          }
+        >
           {sub}
         </span>
       ) : null}
@@ -386,49 +529,160 @@ function StatCard({
   );
 }
 
-function SummaryCell({ tone, label, value, valueTone }: {
-  tone: StatTone; label: string; value: string; valueTone?: "up" | "down";
+function SummaryCell({
+  tone,
+  label,
+  value,
+  valueTone,
+}: {
+  tone: StatTone;
+  label: string;
+  value: string;
+  valueTone?: "up" | "down";
 }) {
   const t = TONES[tone];
   return (
-    <div className="praxis-pf-summary-cell" style={{ ["--accent" as never]: t.accent } as React.CSSProperties}>
+    <div
+      className="praxis-pf-summary-cell"
+      style={{ ["--accent" as never]: t.accent } as React.CSSProperties}
+    >
       <span className="praxis-pf-summary-label">{label}</span>
-      <span className={"praxis-pf-summary-value " + (valueTone === "up" ? "is-up" : valueTone === "down" ? "is-down" : "")}>
+      <span
+        className={
+          "praxis-pf-summary-value " +
+          (valueTone === "up" ? "is-up" : valueTone === "down" ? "is-down" : "")
+        }
+      >
         {value}
       </span>
     </div>
   );
 }
 
-function TrajectoryLine({ startingValue, currentValue }: { startingValue: number; currentValue: number }) {
-  const W = 900, H = 220, PAD_X = 40, PAD_Y = 26;
+function TrajectoryLine({
+  startingValue,
+  currentValue,
+}: {
+  startingValue: number;
+  currentValue: number;
+}) {
+  const W = 900,
+    H = 220,
+    PAD_X = 40,
+    PAD_Y = 26;
   const min = Math.min(startingValue, currentValue);
   const max = Math.max(startingValue, currentValue);
   const rawRange = max - min;
   const pad = rawRange === 0 ? Math.max(max * 0.05, 100) : rawRange * 0.15;
-  const lo = min - pad, hi = max + pad, span = hi - lo;
+  const lo = min - pad,
+    hi = max + pad,
+    span = hi - lo;
   const y0 = PAD_Y + (1 - (startingValue - lo) / span) * (H - PAD_Y * 2);
   const y1 = PAD_Y + (1 - (currentValue - lo) / span) * (H - PAD_Y * 2);
   const up = currentValue >= startingValue;
   const stroke = up ? "#15803d" : "#b91c1c";
   return (
-    <svg viewBox={"0 0 " + W + " " + H} preserveAspectRatio="none"
-      className="praxis-pf-chart-svg" role="img" aria-label="Portfolio value over time">
+    <svg
+      viewBox={"0 0 " + W + " " + H}
+      preserveAspectRatio="none"
+      className="praxis-pf-chart-svg"
+      role="img"
+      aria-label="Portfolio value over time"
+    >
       <defs>
         <linearGradient id="pfTrajFill" x1="0" y1="0" x2="0" y2="1">
-          {up ? (<><stop offset="0%" stopColor="#15803d" stopOpacity="0.22" /><stop offset="60%" stopColor="#15803d" stopOpacity="0.06" /><stop offset="100%" stopColor="#15803d" stopOpacity="0" /></>) : (<><stop offset="0%" stopColor="#b91c1c" stopOpacity="0.22" /><stop offset="60%" stopColor="#b91c1c" stopOpacity="0.06" /><stop offset="100%" stopColor="#b91c1c" stopOpacity="0" /></>)}
+          {up ? (
+            <>
+              <stop offset="0%" stopColor="#15803d" stopOpacity="0.22" />
+              <stop offset="60%" stopColor="#15803d" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#15803d" stopOpacity="0" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#b91c1c" stopOpacity="0.22" />
+              <stop offset="60%" stopColor="#b91c1c" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#b91c1c" stopOpacity="0" />
+            </>
+          )}
         </linearGradient>
         <linearGradient id="pfTrajStroke" x1="0" y1="0" x2="1" y2="0">
-          {up ? (<><stop offset="0%" stopColor="#22c55e" /><stop offset="100%" stopColor="#15803d" /></>) : (<><stop offset="0%" stopColor="#f87171" /><stop offset="100%" stopColor="#b91c1c" /></>)}
+          {up ? (
+            <>
+              <stop offset="0%" stopColor="#22c55e" />
+              <stop offset="100%" stopColor="#15803d" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#f87171" />
+              <stop offset="100%" stopColor="#b91c1c" />
+            </>
+          )}
         </linearGradient>
       </defs>
-      <line x1={PAD_X} y1={PAD_Y} x2={W - PAD_X} y2={PAD_Y} stroke="var(--color-border)" strokeWidth="1" strokeDasharray="2 6" />
-      <line x1={PAD_X} y1={H - PAD_Y} x2={W - PAD_X} y2={H - PAD_Y} stroke="var(--color-border)" strokeWidth="1" strokeDasharray="2 6" />
-      <path d={"M " + PAD_X + " " + y0 + " L " + (W - PAD_X) + " " + y1 + " L " + (W - PAD_X) + " " + (H - PAD_Y) + " L " + PAD_X + " " + (H - PAD_Y) + " Z"} fill="url(#pfTrajFill)" />
-      <path d={"M " + PAD_X + " " + y0 + " L " + (W - PAD_X) + " " + y1} fill="none" stroke="url(#pfTrajStroke)" strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx={PAD_X} cy={y0} r="5" fill="#fff" stroke="var(--color-text-muted)" strokeWidth="2" />
+      <line
+        x1={PAD_X}
+        y1={PAD_Y}
+        x2={W - PAD_X}
+        y2={PAD_Y}
+        stroke="var(--color-border)"
+        strokeWidth="1"
+        strokeDasharray="2 6"
+      />
+      <line
+        x1={PAD_X}
+        y1={H - PAD_Y}
+        x2={W - PAD_X}
+        y2={H - PAD_Y}
+        stroke="var(--color-border)"
+        strokeWidth="1"
+        strokeDasharray="2 6"
+      />
+      <path
+        d={
+          "M " +
+          PAD_X +
+          " " +
+          y0 +
+          " L " +
+          (W - PAD_X) +
+          " " +
+          y1 +
+          " L " +
+          (W - PAD_X) +
+          " " +
+          (H - PAD_Y) +
+          " L " +
+          PAD_X +
+          " " +
+          (H - PAD_Y) +
+          " Z"
+        }
+        fill="url(#pfTrajFill)"
+      />
+      <path
+        d={"M " + PAD_X + " " + y0 + " L " + (W - PAD_X) + " " + y1}
+        fill="none"
+        stroke="url(#pfTrajStroke)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+      <circle
+        cx={PAD_X}
+        cy={y0}
+        r="5"
+        fill="#fff"
+        stroke="var(--color-text-muted)"
+        strokeWidth="2"
+      />
       <circle cx={W - PAD_X} cy={y1} r="9" fill={stroke} opacity="0.15" />
-      <circle cx={W - PAD_X} cy={y1} r="5" fill={stroke} stroke="#fff" strokeWidth="2" />
+      <circle
+        cx={W - PAD_X}
+        cy={y1}
+        r="5"
+        fill={stroke}
+        stroke="#fff"
+        strokeWidth="2"
+      />
     </svg>
   );
 }
@@ -456,7 +710,15 @@ function SectorDonut({ view }: { view: PortfolioView }) {
     <div className="praxis-pf-donut-wrap">
       <div className="praxis-pf-donut-stack">
         <svg viewBox="0 0 160 160" className="praxis-pf-donut">
-          <circle cx="80" cy="80" r={R} fill="none" stroke="var(--color-border)" strokeWidth="18" opacity="0.5" />
+          <circle
+            cx="80"
+            cy="80"
+            r={R}
+            fill="none"
+            stroke="var(--color-border)"
+            strokeWidth="18"
+            opacity="0.5"
+          />
           {segments.map((seg, i) => {
             const frac = seg.value / total;
             const dashLen = frac * C;
@@ -464,14 +726,27 @@ function SectorDonut({ view }: { view: PortfolioView }) {
             const offset = -cumulative * C;
             cumulative += frac;
             return (
-              <circle key={i} cx="80" cy="80" r={R} fill="none" stroke={seg.color} strokeWidth="18"
-                strokeDasharray={dashArray} strokeDashoffset={offset} transform="rotate(-90 80 80)" strokeLinecap="butt" />
+              <circle
+                key={i}
+                cx="80"
+                cy="80"
+                r={R}
+                fill="none"
+                stroke={seg.color}
+                strokeWidth="18"
+                strokeDasharray={dashArray}
+                strokeDashoffset={offset}
+                transform="rotate(-90 80 80)"
+                strokeLinecap="butt"
+              />
             );
           })}
         </svg>
         <div className="praxis-pf-donut-center">
           <span className="praxis-pf-donut-center-label">Total</span>
-          <span className="praxis-pf-donut-center-value">{formatKsh(totalValue)}</span>
+          <span className="praxis-pf-donut-center-value">
+            {formatKsh(totalValue)}
+          </span>
         </div>
       </div>
       {segments.length > 0 ? (
@@ -480,12 +755,23 @@ function SectorDonut({ view }: { view: PortfolioView }) {
             const pct = (seg.value / total) * 100;
             return (
               <li key={i} className="praxis-pf-legend-row">
-                <span className="praxis-pf-legend-dot" style={{ background: seg.color }} />
+                <span
+                  className="praxis-pf-legend-dot"
+                  style={{ background: seg.color }}
+                />
                 <span className="praxis-pf-legend-label">{seg.label}</span>
                 <span className="praxis-pf-legend-bar">
-                  <span className="praxis-pf-legend-bar-fill" style={{ width: pct.toFixed(1) + "%", background: seg.color }} />
+                  <span
+                    className="praxis-pf-legend-bar-fill"
+                    style={{
+                      width: pct.toFixed(1) + "%",
+                      background: seg.color,
+                    }}
+                  />
                 </span>
-                <span className="praxis-pf-legend-value">{pct.toFixed(1)}%</span>
+                <span className="praxis-pf-legend-value">
+                  {pct.toFixed(1)}%
+                </span>
               </li>
             );
           })}

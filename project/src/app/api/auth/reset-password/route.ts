@@ -18,42 +18,64 @@ const ANON =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
   "";
 
-type Body = { token?: string; email?: string; password?: string };
+type Body = {
+  token?: string;
+  email?: string;
+  password?: string;
+  confirm?: string;
+};
 
 export async function POST(request: Request) {
   const body = await parseJsonBody<Body>(request);
   const token = (body?.token ?? "").trim();
   const email = (body?.email ?? "").trim().toLowerCase();
   const password = body?.password ?? "";
+  const confirm = body?.confirm ?? "";
 
   if (!token) {
     return NextResponse.json(
-      { ok: false, error: "Missing reset token. Open the reset link from your email." },
-      { status: 400 }
+      {
+        ok: false,
+        error: "Missing reset token. Open the reset link from your email.",
+      },
+      { status: 400 },
     );
   }
   if (!email) {
     return NextResponse.json(
-      { ok: false, error: "Missing email. Open the reset link from your email." },
-      { status: 400 }
+      {
+        ok: false,
+        error: "Missing email. Open the reset link from your email.",
+      },
+      { status: 400 },
     );
   }
   if (password.length < 8) {
     return NextResponse.json(
       { ok: false, error: "Password must be at least 8 characters." },
-      { status: 400 }
+      { status: 400 },
+    );
+  }
+  if (password !== confirm) {
+    return NextResponse.json(
+      { ok: false, error: "Passwords don't match. Check both fields." },
+      { status: 400 },
     );
   }
 
   if (!SUPABASE_URL || !ANON) {
-    return NextResponse.json({ ok: false, error: "Server not configured." }, { status: 503 });
+    return NextResponse.json(
+      { ok: false, error: "Server not configured." },
+      { status: 503 },
+    );
   }
 
-  
-  
-  
   const anon = createClient(SUPABASE_URL, ANON, {
-    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
   });
 
   const { data, error } = await anon.auth.verifyOtp({
@@ -77,16 +99,38 @@ export async function POST(request: Request) {
         error:
           "This reset link is invalid or has already been used. Request a new one from the login page.",
       },
-      { status: 400 }
+      { status: 400 },
+    );
+  }
+
+  const verifiedEmail = data.user.email?.toLowerCase() ?? "";
+  if (verifiedEmail && verifiedEmail !== email) {
+    logEvent({
+      eventType: "auth.password_change",
+      request,
+      metadata: {
+        email,
+        verified_email: verifiedEmail,
+        stage: "email_mismatch",
+      },
+    });
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "This reset link does not match the email address you entered.",
+      },
+      { status: 400 },
     );
   }
 
   const userId = data.user.id;
 
-  
   const admin = getSupabaseAdmin();
   if (!admin) {
-    return NextResponse.json({ ok: false, error: "Server not configured." }, { status: 503 });
+    return NextResponse.json(
+      { ok: false, error: "Server not configured." },
+      { status: 503 },
+    );
   }
 
   const update = await admin.auth.admin.updateUserById(userId, { password });
@@ -99,14 +143,14 @@ export async function POST(request: Request) {
     });
     return NextResponse.json(
       { ok: false, error: "Could not update your password. Try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
-  
   const sessionToken = await createSession(userId, {
     userAgent: request.headers.get("user-agent") ?? undefined,
-    ip: request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? undefined,
+    ip:
+      request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? undefined,
   });
 
   logEvent({
@@ -119,7 +163,7 @@ export async function POST(request: Request) {
   const response = NextResponse.json({ ok: true });
   response.headers.append(
     "Set-Cookie",
-    sessionCookieHeader(sessionCookieValueFromToken(sessionToken, userId))
+    sessionCookieHeader(sessionCookieValueFromToken(sessionToken, userId)),
   );
   return response;
 }

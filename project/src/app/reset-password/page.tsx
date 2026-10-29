@@ -33,8 +33,6 @@ function ResetInner() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  
-  
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmRef = useRef<HTMLInputElement>(null);
 
@@ -45,7 +43,6 @@ function ResetInner() {
     if (submitting) return;
     setError("");
 
-    
     const pw = passwordRef.current?.value ?? password;
     const cf = confirmRef.current?.value ?? confirm;
 
@@ -59,7 +56,7 @@ function ResetInner() {
     }
 
     setSubmitting(true);
-    const result = await resetPassword(token, email, pw);
+    const result = await resetPassword(token, email, pw, cf);
     setSubmitting(false);
 
     if (!result.ok) {
@@ -74,9 +71,7 @@ function ResetInner() {
       });
       const data = await res.json();
       if (data?.user) setUser(data.user);
-    } catch {
-      
-    }
+    } catch {}
 
     router.replace("/dashboard");
   }
@@ -93,8 +88,8 @@ function ResetInner() {
         }
       >
         <div style={alertStyle}>
-          The link you followed doesn't include a reset token. Request a new password
-          reset to get a fresh link.
+          The link you followed doesn't include a reset token. Request a new
+          password reset to get a fresh link.
         </div>
       </AuthShell>
     );
@@ -201,7 +196,13 @@ export default function ResetPasswordPage() {
   return (
     <Suspense
       fallback={
-        <div style={{ padding: 40, textAlign: "center", color: "var(--color-text-muted)" }}>
+        <div
+          style={{
+            padding: 40,
+            textAlign: "center",
+            color: "var(--color-text-muted)",
+          }}
+        >
           Loading…
         </div>
       }

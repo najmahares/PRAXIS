@@ -1,6 +1,3 @@
-
-
-
 export type AuthUser = {
   id: string;
   name: string;
@@ -10,14 +7,6 @@ export type AuthUser = {
 export type AuthResult =
   | { ok: true; user?: AuthUser; message?: string }
   | { ok: false; error: string };
-
-
-
-
-
-
-
-
 
 export type BootstrapPayload = {
   user: AuthUser | null;
@@ -90,7 +79,10 @@ export function getCachedBootstrap(): BootstrapPayload | null {
   return _bootstrapCache;
 }
 
-async function postJson<T>(url: string, body: unknown): Promise<T | { ok: false; error: string }> {
+async function postJson<T>(
+  url: string,
+  body: unknown,
+): Promise<T | { ok: false; error: string }> {
   try {
     const res = await fetch(url, {
       method: "POST",
@@ -101,18 +93,35 @@ async function postJson<T>(url: string, body: unknown): Promise<T | { ok: false;
     const data = await res.json();
     return data as T;
   } catch {
-    return { ok: false, error: "Network error. Check your connection and try again." };
+    return {
+      ok: false,
+      error: "Network error. Check your connection and try again.",
+    };
   }
 }
 
-export async function signIn(email: string, password: string): Promise<AuthResult> {
-  const res = await postJson<AuthResult>("/api/auth/login", { email, password });
+export async function signIn(
+  email: string,
+  password: string,
+): Promise<AuthResult> {
+  const res = await postJson<AuthResult>("/api/auth/login", {
+    email,
+    password,
+  });
   invalidateBootstrap();
   return res as AuthResult;
 }
 
-export async function signUp(name: string, email: string, password: string): Promise<AuthResult> {
-  const res = await postJson<AuthResult>("/api/auth/signup", { name, email, password });
+export async function signUp(
+  name: string,
+  email: string,
+  password: string,
+): Promise<AuthResult> {
+  const res = await postJson<AuthResult>("/api/auth/signup", {
+    name,
+    email,
+    password,
+  });
   invalidateBootstrap();
   return res as AuthResult;
 }
@@ -128,9 +137,7 @@ export async function signOut(): Promise<void> {
       method: "POST",
       credentials: "same-origin",
     });
-  } catch {
-    
-  }
+  } catch {}
   invalidateBootstrap();
 }
 
@@ -143,18 +150,21 @@ export async function resetPassword(
   token: string,
   email: string,
   newPassword: string,
+  confirmPassword?: string,
 ): Promise<AuthResult> {
   const res = await postJson<AuthResult>("/api/auth/reset-password", {
     token,
     email,
     password: newPassword,
+    confirm: confirmPassword ?? newPassword,
   });
   return res as AuthResult;
 }
 
 export function startGoogleAuth(): void {
   if (typeof window === "undefined") return;
-  const next = new URLSearchParams(window.location.search).get("next") ?? "/dashboard";
+  const next =
+    new URLSearchParams(window.location.search).get("next") ?? "/dashboard";
   window.location.href = "/api/auth/google?next=" + encodeURIComponent(next);
 }
 
